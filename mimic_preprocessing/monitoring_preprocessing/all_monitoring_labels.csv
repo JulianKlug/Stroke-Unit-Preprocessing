@@ -1,0 +1,1621 @@
+,label
+Heart Rate,85335
+Respiratory Rate,83963
+Heart Rhythm,78436
+calprevflg,44301
+SpO2,44011
+Code Status,41596
+Ectopy Type,41226
+Precautions,40856
+O2 saturation pulseoxymetry,40258
+Service Type,37546
+Orientation,34873
+Risk for Falls,34771
+Ectopy Type 1,34359
+Ectopy Frequency,34031
+RU Strength/Movement,33765
+LU Strength/Movement,33757
+RL Strength/Movement,33757
+LL Strength/Movement,33717
+Spontaneous Movement,33206
+Safety Measures_U_1,32801
+Speech,32297
+Assistance Device,29247
+Activity,28889
+Turn,28256
+SpO2 Alarm [Low],27717
+HR Alarm [Low],27677
+SpO2 Alarm [High],27650
+HR Alarm [High],27624
+Resp Alarm [Low],27609
+Resp Alarm [High],27554
+Position,27133
+Activity Tolerance,27066
+Arterial BP [Systolic],25265
+Arterial BP [Diastolic],25165
+Arterial BP Mean,24930
+Gag Reflex,24505
+Cough Reflex,24351
+Non Invasive Blood Pressure mean,23599
+Non Invasive Blood Pressure systolic,23572
+Non Invasive Blood Pressure diastolic,23565
+Respiratory Pattern,23471
+NBP Alarm [Low],23175
+NBP Alarm [High],23099
+Follows Commands,22663
+Urine Source,22635
+Therapeutic Bed,22323
+Pain Present,21211
+Side Rails,21196
+NBP [Systolic],21168
+Diet Type,21150
+NBP [Diastolic],21091
+Riker-SAS Scale,21008
+NBP Mean,20881
+Level of Conscious,19880
+RUL Lung Sounds,19842
+LUL Lung Sounds,19824
+RLL Lung Sounds,19754
+LLL Lung Sounds,19714
+Previous WeightF,19464
+GCS - Eye Opening,19300
+GCS - Motor Response,19254
+GCS - Verbal Response,19246
+Eye Opening,19228
+Verbal Response,19166
+Motor Response,19149
+GCS Total,19033
+Communication,18672
+Pupil Size Right,18618
+Pupil Response Right,18569
+Pupil Size Left,18451
+Oral Cavity,18350
+Pupil Response Left,18294
+Health Care Proxy,18046
+Pupil Size [Right],17781
+Abdominal Assessment,17653
+Pupil Size [Left],17640
+Pupil Response [Right],17627
+Pupil Response [Left],17587
+Less Restrictive Measures,16858
+Restraint Location,16373
+Responds to Stimuli [Type],16259
+Parameters Checked,16190
+Arterial Blood Pressure systolic,16130
+Arterial Blood Pressure mean,16129
+Arterial Blood Pressure diastolic,16127
+Bowel Sounds,16127
+Support Systems,16014
+Level of Consciousness,16014
+Responds to Stimuli [Value],15959
+Response to Stimuli (Type),15672
+Response,15399
+Pain Location,15282
+Head of Bed,15090
+Oral Care,14785
+ABP Alarm [Low],14700
+ABP Alarm [High],14605
+Range of Motion,13912
+HOB,13530
+Skin Integrity,13450
+Position Change,13422
+Restraints Evaluated,12916
+Neuro Symptoms,12698
+Seizure Activity,12298
+Pain Management,11958
+GI Tube #1 [Site],11714
+Anti Embolic Device,11089
+Daily Wake Up,11082
+Anti-Embolism [Device],10725
+Anti-Embolism [Status],10509
+Urine [Color],10443
+Temp. Site,10374
+Urine [Appearance],10339
+Temperature F,10336
+Temperature C (calc),10318
+Sputum Source,10018
+Temperature Site,9997
+Behavior,9946
+Ventilator Type,9900
+Anti Embolic Device Status,9859
+Pain Assessment Method,9847
+Temperature Fahrenheit,9580
+Sputum Consistency,9397
+Ventilator Mode,9369
+Braden Moisture,9206
+Braden Activity,9203
+Braden Mobility,9196
+Braden Nutrition,9186
+Back Care,9136
+Alarms On,9124
+O2 Delivery Device(s),9113
+Skin Care,9072
+Mean Airway Pressure,8824
+Safety Measures,8507
+Family Communication,8464
+Pain Assess Method,8454
+Reason For Restraint,8420
+Restraint Type,8412
+Respiratory Effort,8402
+Pressure Reducing Device,8214
+Dorsal PedPulse [Right],8055
+Dorsal PedPulse [Left],7908
+Circulation/SkinInt,7861
+Removed x 5 Mins,7694
+Alarms,7637
+Pain Type,7357
+CVP,7309
+GI Intub #1 [Type],7195
+GI Intub #1 [Site],7075
+O2 Delivery Device,6988
+Cough Effort,6941
+Urine Color,6894
+Corneal Reflex Right,6851
+Skin Color,6798
+Skin Condition,6706
+GI Prophylaxis [Drug #1],6690
+Education Topic #1,6644
+Corneal Reflex Left,6578
+Reason for Restraint (Non-violent),6560
+IV #1 [Site],6526
+Urine Appearance,6476
+Eye Care,6447
+Dorsal PedPulse R,6420
+Pain Level Acceptable,6403
+Nares R,6392
+Circulation/Skin Integrity,6374
+IV #1 [Size],6321
+FiO2 Set,6317
+Education Topic,6217
+Dorsal PedPulse L,6185
+Peak Insp. Pressure,6116
+Status and Comfort,6090
+Nares L,6057
+Pain Level,6027
+Airway Type,6018
+PostTib. Pulses [Right],5997
+Skin Temperature,5997
+INV Line#1 [Type],5959
+Food and Fluid,5911
+PostTib. Pulses [Left],5842
+INV Line#1 [Site],5836
+IV #2 [Site],5794
+Edema Location,5774
+Sputum [Amount],5737
+Airway Size,5729
+Inspired O2 Fraction,5719
+Ectopy Frequency 1,5709
+Restraint (Non-violent),5698
+Cough Type,5637
+IV #2 [Size],5610
+Restraint Device (Non-violent),5544
+Sputum [Color],5533
+CVP Alarm [Low],5509
+CVP Alarm [High],5469
+Patient/Family Informed,5286
+IV Site Appear #1,5248
+Urinal/Bedpan,5245
+Signs of Injury from Intervention,5241
+Side  Rails,5222
+GI#1 Tube [Status],5210
+O2 Flow (lpm),5209
+Fingerstick Glucose,5048
+Braden Sensory Perception,5030
+GU Catheter Size,5024
+Braden Friction/Shear,4994
+Richmond-RAS Scale,4935
+INV Line#1SiteAppear,4924
+ETT [Mark],4898
+ETT [Location],4793
+PEEP Set,4755
+Restraint Ordered (Non-violent),4724
+Resp Rate (Total),4691
+Education Barrier,4652
+IV Site Appear #2,4623
+PEEP set,4549
+Minute Volume(Obser),4547
+Low Exhaled Min Vol,4472
+High Resp. Rate,4465
+High Insp. Pressure,4445
+Minute Volume,4431
+Education Learner,4344
+PostTib. Pulses R,4268
+Sputum Amount,4255
+Sensitivity-Vent,4245
+20 Gauge Site Appear,4235
+Education Readiness,4230
+Minute Volume Alarm - High,4200
+Minute Volume Alarm - Low,4196
+Apnea Interval,4185
+Respiratory Rate (spontaneous),4180
+Braden Frict/Shear,4171
+Braden SensoryPercep,4169
+Education Method,4164
+Tidal Volume (observed),4157
+Paw High,4154
+Braden Score,4149
+Height of Bed,4142
+Face to Face Eval (Non-violent),4129
+20 Gauge placed in outside facility,4101
+20 Gauge Dressing Occlusive,4099
+PostTib. Pulses L,4077
+Glucose finger stick,4070
+Magnesium,4066
+Vti High,4061
+Creatinine,4059
+Education Response,4044
+BUN,4040
+INV#1 WaveformAppear,4026
+Humidification,4020
+Secondary diagnosis,4008
+History of falling (within 3 mnths),3994
+Gait/Transferring,3986
+Ambulatory aid,3985
+IV/Saline lock,3983
+Sputum Color,3983
+Flow Sensitivity,3971
+Mental status,3967
+Fspn High,3963
+Flow Pattern,3942
+Hemoglobin,3935
+Flow Rate (variable/fixed),3929
+PainLevel Acceptable,3888
+Phosphorous,3863
+Slope,3838
+Apnea Time Interval,3821
+Inspired Gas Temp,3818
+Less Restrict Meas.,3771
+GI #1 Tube Type,3759
+PTT,3724
+GI #1 Intub Site,3714
+RUE Sensation,3711
+Daily Wake Up Deferred,3695
+ETT Location,3695
+ETT Size (ID),3687
+ETT Mark (cm),3686
+Heart Rate Alarm - Low,3680
+ETT Type,3670
+Heart rate Alarm - High,3668
+RLE Sensation,3667
+LUE Sensation,3641
+Impaired Skin Site #1,3627
+Religion,3623
+O2 Saturation Pulseoxymetry Alarm - Low,3609
+O2 Saturation Pulseoxymetry Alarm - High,3599
+LLE Sensation,3588
+Resp Alarm - High,3557
+Resp Alarm - Low,3555
+WBC,3549
+GI #1 Tube Status,3547
+Pt./Family Informed,3539
+Subglottal Suctioning,3529
+Pain Cause,3500
+INV Line#2 [Type],3475
+SpO2 Desat Limit,3473
+Pressure Support,3454
+INV Line#2 [Site],3384
+Arterial line Site Appear,3381
+18 Gauge Site Appear,3362
+Corneal Reflex [Right],3344
+Corneal Reflex [Left],3317
+18 Gauge Dressing Occlusive,3299
+18 Gauge placed in outside facility,3292
+Glucose (70-105),3239
+Arterial Base Excess,3223
+Pain Level Response,3201
+Untoward Effect,3156
+PSV Level,3125
+Ve High,3110
+Arterial Line Dressing Occlusive,3074
+Arterial line Waveform Appear,3072
+Arterial Line placed in outside facility,3036
+Tidal Volume (spontaneous),2986
+Marital Status,2956
+Capillary Refill R,2947
+INV Line#2SiteAppear,2902
+IV #3 [Site],2864
+ST Segment Monitoring On,2857
+INR,2845
+Capillary Refill L,2817
+Impaired Skin Site#1,2804
+IV #3 [Size],2800
+Respiratory Rate (Total),2787
+20 Gauge placed in the field,2785
+Potassium (3.5-5.3),2781
+O2 Flow,2745
+Tidal Volume (Spont),2742
+Sodium (serum),2717
+Language,2691
+Non-Invasive Blood Pressure Alarm - Low,2681
+Non-Invasive Blood Pressure Alarm - High,2681
+Potassium (serum),2651
+NBP Alarm Source,2629
+RLE Temp,2600
+Glucose,2593
+RUE [Sensation],2568
+Chloride (serum),2555
+INV Line#1 Zero/Cal,2532
+RLE [Sensation],2527
+RLE Color,2518
+Plateau Pressure,2512
+LLE Temp,2507
+LUE [Sensation],2502
+LLE [Sensation],2489
+Patient Location,2486
+Known difficult intubation,2476
+Angio Site #1,2457
+Sodium (135-148),2445
+All Medications Tolerated without Adverse Side Effects,2436
+LLE Color,2429
+Glucose (serum),2424
+Side Rails_V2,2397
+Hematocrit,2391
+RUE Temp,2382
+IV Site Appear #3,2371
+LUE Temp,2356
+HCO3 (serum),2325
+Anion gap,2318
+RUE Color,2307
+LUE Color,2282
+Impaired Skin Type #1,2281
+GI#1 Tube PlaceCheck,2276
+Potassium,2241
+Edema Amount,2237
+Calcium non-ionized,2232
+Respiratory Rate Set,2224
+Tidal Volume (Obser),2184
+Magnesium (1.6-2.6),2169
+18 Gauge placed in the field,2168
+Hematocrit (serum),2168
+INV#2 WaveformAppear,2156
+Creatinine (0-1.3),2154
+Tidal Volume (Set),2150
+Chloride (100-112),2147
+Inspired Gas Temp.,2145
+Impaired Skin Treatment #1,2144
+BUN (6-20),2143
+Carbon Dioxide,2138
+Goal Richmond-RAS Scale,2120
+PTT(22-35),2120
+Resp Rate (Spont),2110
+Central Venous Pressure,2108
+GI #1 Tube Place Check,2090
+Commands Response,2018
+Incision/Wound #1,2008
+Strength R Arm,2003
+Strength R Leg,2002
+Sodium,2002
+Strength L Arm,1996
+Platelet Count,1992
+Strength L Leg,1991
+Commands,1984
+Flatus,1963
+Phosphorous(2.7-4.5),1961
+Platelets,1958
+Waveform-Vent,1951
+"WBC (4-11,000)",1950
+Compliance (40-60ml),1946
+Arterial pH,1945
+Arterial PaCO2,1941
+Arterial PaO2,1934
+RBC,1933
+Arterial CO2(Calc),1926
+Calcium (8.4-10.2),1917
+Intra Cranial Pressure,1906
+Radial Pulse R,1841
+"WBC   (4-11,000)",1813
+Pronator drift present,1805
+Radial Pulse L,1804
+Multi Lumen Site Appear,1794
+Art.pH,1790
+Angio Appearance #1 [Attribute 1],1778
+Impaired Skin Drainage #1,1754
+Ventilator Tank #2,1743
+Chloride,1740
+Ventilator Tank #1,1740
+Neuro Drain #1 Type,1711
+INR (2-4 ref. range),1702
+PT(11-13.5),1696
+Respiratory Rate (Set),1667
+Education Handout,1653
+Tidal Volume (set),1651
+Calcium,1637
+Previous Weight,1634
+Incision Appearance #1,1629
+Surrounding Tissue #1,1615
+CV - past medical history,1610
+GI#1 Tube [Drain],1606
+Multi Lumen Dressing Occlusive,1605
+Multi Lumen placed in outside facility,1603
+Impaired Skin Site #2,1583
+Procedures,1577
+Inspiratory Time,1571
+Incision Site #1,1570
+Angio Dressing #1,1552
+Expiratory Ratio,1531
+Cerebral Perfusion Pressure,1527
+Inspiratory Ratio,1524
+Impaired Skin Wound Base #1,1514
+Incision Drainage #1,1507
+Dressing Status #1,1497
+Ionized Calcium,1480
+Multi Lumen Placement Confirmed by X-ray,1475
+Incision Closure #1,1471
+Prothrombin time,1470
+PressureReduceDevice,1466
+Incision Dressing #1,1461
+Arterial Blood Pressure Alarm - High,1457
+Arterial Blood Pressure Alarm - Low,1456
+Impaired Skin Drainage Amount #1,1456
+Tank A psi.,1440
+Tank B psi.,1439
+ABP Alarm Source,1430
+Education Topic #2,1405
+I:E Ratio,1393
+Angio Site # 1,1391
+Pain Management [Route/Status #1],1388
+Angio Dressing # 1,1384
+Angio Appearance # 1,1382
+Motor L Leg,1375
+Motor L Arm,1374
+PT,1371
+High risk (>51) interventions,1366
+Motor R Arm,1365
+Motor R Leg,1363
+Impaired Skin Odor #1,1361
+PICC Line Site Appear,1324
+PH (Arterial),1314
+Orientation to Person,1307
+Arterial CO2 Pressure,1300
+Arterial O2 pressure,1300
+TCO2 (calc) Arterial,1300
+Smoking Cessation Info Offered through BIDMC Inpatient Guide,1299
+Orientation to Place,1294
+Orientation to Time,1262
+INV Line#2 Zero/Cal,1261
+Arterial Line Zero/Calibrate,1260
+Daily Weight,1258
+Impaired Skin Site#2,1239
+PICC Line Dressing Occlusive,1236
+Impaired Skin Cleanse #1,1229
+Incision Drainage Amount #1,1224
+ImpSkin Treatment #1,1219
+PICC Line placed in outside facility,1193
+INV Line#3 [Type],1180
+Impaired Skin Type #2,1180
+Less Restrictive Measures_V1,1179
+Service,1179
+INV Line#3 [Site],1168
+Trach Tube Type,1161
+Impaired Skin Treatment #2,1154
+Neuro Drain #1 Status,1151
+Inc #1 [Dressing],1130
+Neuro Drain #1 Level,1110
+Multi Lumen Waveform Appear,1108
+PICC Line Placement Confirmed by X-ray,1104
+ImpSkin Character #1,1087
+Stool Guaiac,1073
+Facial Droop,1037
+Bed Bath,1032
+Serum Osmolality,1021
+Radiologic Study,1020
+Pain Level (Rest),1005
+IV #4 [Site],992
+Pressure Ulcer Stage #1,967
+RLE [Temperature],964
+IV #4 [Size],955
+RLE [Color],954
+Immobilizer,947
+GI #1 Tube Place Method,947
+INV Line#3SiteAppear,946
+Inc #1 [Drainage],943
+Stool Management,936
+Cuff Pressure,934
+Significant Events,914
+Delirium assessment,906
+LLE [Temp],901
+Intravenous  / IV access prior to admission,887
+LLE [Color],885
+CPK,880
+Patient/Family Informed_V2,873
+Immobilizer Device,869
+Inc #1 [Closure],863
+Immobilizer Location,858
+Reason for Immobilizer,856
+Skin [Temperature],849
+Trach Tube Manufacturer,849
+Impaired Skin Drainage #2,844
+ART BP mean,840
+ART BP Diastolic,837
+ART BP Systolic,837
+IV Site Appear #4,836
+Trach Tube Size (I.D.),835
+ImpSkin Wound Base#1,832
+Living situation,815
+Stool Estimate,814
+Impaired Skin Cleanse #2,804
+Impaired Skin Site#3,804
+Lactic Acid,802
+Immobilizer Evaluated,796
+Stool Color,795
+MDI #1 [Puff],781
+MDI #1 [Drug],771
+Stool Consistency,770
+Angio Appearance #1 [Attribute 2],766
+Plateau-Off,765
+Neuro Drain #1 Drainage,756
+CAM-ICU MS Change,748
+Consults,746
+Inc #1 [Appearance],743
+Impaired Skin  - Dressing Status #1,726
+Surrounding Tissue #2,718
+Inc #1 [Status],710
+Neuro Drain Landmark,709
+Impaired Skin Site #3,708
+Trach Size,705
+Tracheostomy Type,704
+ICP,697
+22 Gauge Site Appear,694
+Cervical Collar Type,691
+Troponin-T,685
+INV#3 WaveformAppear,680
+Impaired Skin Odor #2,680
+Cough/Deep Breath,680
+Admission Weight (lbs.),678
+CK (CPK),675
+History of slips / falls,675
+Teaching directed toward,669
+22 Gauge placed in outside facility,666
+ImpSkin #1 [Drain],664
+22 Gauge Dressing Occlusive,663
+Bath,656
+20 G Phlebitis Scale,654
+BSA,649
+Allergy 1,649
+Admit Wt,649
+Admit Ht,649
+Diagnosis/op,649
+Readmission,649
+Allergy 3,649
+Ext,649
+Allergy 2,649
+Self ADL,646
+Trach [Cuff],646
+GI #1 Tube Drainage,644
+Trach [Fenestra],642
+Tunneling Present #1,642
+Impaired Skin Width #1,641
+Impaired Skin Length #1,641
+Ectopy Type 2,635
+Undermining Present #1,632
+Impaired Skin Drainage Amount #2,632
+Impaired Skin Type #3,631
+Total PEEP Level,627
+18 G Phlebitis Scale,624
+ALT,624
+Is the spokesperson the Health Care Proxy,623
+AST,622
+Incision Cleansing #1,620
+Stool [Color],613
+20 G Infiltration Scale,611
+Balance,609
+Low Insp. Pressure,608
+Stool [Consistency],607
+Temperature C,601
+Pressure Sore Site#1,600
+Judgement,599
+Past medical history,598
+CPP,598
+Arterial BP #2 [Systolic],589
+Arterial BP Mean #2,585
+Patient valuables,579
+Arterial BP #2 [Diastolic],576
+GI Tube #2 [Site],571
+CK-MB,570
+18 G Infiltration Scale,570
+No wallet / money,567
+Temperature F (calc),556
+Triglyceride,552
+Cholesterol,547
+Impaired Skin Treatment #3,546
+Visual Field Cut,538
+Knee Location - Immobilizer,535
+Use of assistive devices,530
+Currently experiencing pain,527
+PAP [Systolic],527
+Impaired Skin Wound Base #2,526
+Ectopy Frequency 2,525
+Ventilator No.,523
+Spon. Vt (L) (Mech.),519
+Spon RR (Mech.),519
+RSBI (<200),519
+PAP [Diastolic],518
+Visual / hearing deficit,517
+Dialysis patient,511
+ETOH,510
+RSBI (<100),508
+Cooling Device,504
+Incision Appearance #2,501
+Unable to assess psychological,500
+Incision Site #2,494
+Neuro Drain Status,493
+Difficulty swallowing,493
+Neuro Drain Type,492
+Pronator Drift,490
+CPK/MB,487
+Incision Dressing #2,483
+Dressing Status #2,482
+PAP Mean,480
+Social work consult,479
+Special diet,477
+ImpSkin Treatment #2,477
+Neuro Drain [Level],477
+Tobacco Use History,475
+Neuro Drain [Location],471
+ETT Mark (location),470
+Reason for Restraints (Non-Violent),469
+Temperature Celsius,469
+Gender,469
+Race,466
+Lactic Acid(0.5-2.0),464
+ETT Position Change,459
+Appetite,458
+Recreational drug use,455
+Spont RR,453
+Spont Vt,452
+Non-Violent Restraints,452
+Tracheostomy Cuff,452
+Warming Device,450
+Incision Drainage #2,448
+Unintentional weight loss >10 lbs.,448
+Cuff Leak,448
+Neuro Drain Drainage,444
+Glucose (whole blood),444
+Impaired Skin Cleanse #3,442
+Impaired Skin Odor #3,436
+Albumin,435
+Cooling Device Status,434
+Unable to assess nutrition / education,433
+Sexuality / reproductive problems,430
+Incision Closure #2,430
+22 Gauge placed in the field,428
+Cough/Deep Breathe,421
+Pressure Ulcer Stage #2,420
+Trach Care,417
+ImpSkin Character #2,416
+Cerv Collar Status,413
+Impaired Skin Drainage #3,411
+Any fear in relationships,409
+Admission Weight (Kg),407
+Restraint Device (Non-Violent),403
+Neuro Drain #1 Landmark,402
+Insulin Guideline,402
+Cooling [Device],400
+Imp Skin Cleanse #1,399
+Peak Flow,395
+Impaired Skin Site #4,394
+Insulin pump,393
+INV Line#3 Zero/Cal,393
+GI Intub #2 [Type],392
+Unable to assess activity / mobility,390
+Emotional / physical / sexual harm by partner or close relation,389
+Weight Change,385
+GI Intub #2 [Site],383
+Cooling [Status],381
+Chest PT [Right],376
+SaO2,374
+Impaired Skin  - Dressing Status #2,372
+Restraint Location_V2,370
+PH (dipstick),361
+ImpSkin Treatment #3,360
+Chest PT [Left],352
+Chest PT R/L,350
+Differential-Basos,349
+Differential-Eos,349
+Differential-Monos,349
+Differential-Lymphs,349
+Discharge needs,345
+LDH,343
+Specific Gravity (urine),341
+CaO2,337
+Unable to assess cognitive / perceptual,336
+Pain Management [Route/Status #2],335
+CAM-ICU Disorganized thinking,330
+MDI #1 Drug,327
+Edema #1 [Location],326
+ImpSkin Wound Base#2,323
+LUE [Temp],322
+Pain Level/Response,322
+RUE [Temperature],320
+Unable to assess teaching / learning needs,319
+LUE [Color],319
+ICP Line placed in outside facility,318
+ICP Line Dressing Occlusive,318
+Incision/Wound #2,318
+ICP Line Waveform Appear,318
+HDL,317
+RUE [Color],316
+ROM [Type],315
+Impaired Skin Length #2,313
+ICP Line Site Appear,312
+Impaired Skin Type #4,312
+Impaired Skin Width #2,309
+Impaired Skin Wound Base #3,309
+Impaired Skin Drainage Amount #3,308
+Alkaline Phosphate,306
+LDL calculated,302
+Incision Drainage Amount #2,301
+Impaired Skin Treatment #4,299
+O2 Delivery Device#2,298
+ROM [Value],297
+ICP Alarm [Low],296
+GI#2 Tube [Status],295
+Unable to assess habits,293
+CT #1 Suction Amount,289
+Total Bilirubin,287
+Edema #1 [Amount],287
+Surrounding Tissue #3,286
+PressSoreTreatment#1,284
+PA line cm Mark,284
+Pressure Ulcer Stage #3,281
+Unable to assess pain,281
+Potassium (whole blood),281
+Impaired Skin Depth #1,277
+16 Gauge placed in outside facility,276
+16 Gauge Dressing Occlusive,276
+16 Gauge Site Appear,275
+Interpreter,275
+ICP Alarm [High],273
+See chart for initial patient assessment,273
+Restraints Evaluated_V2,271
+Surrounding Tissue #4,271
+Warming Device Status,268
+Incentive Spirometry,262
+Alk. Phosphate,261
+Micro-Neb Treatment,259
+CHG Bath,258
+PressSoreWoundBase#1,255
+Side Rails (Restraint),255
+Triglyceride (0-200),254
+Cholesterol (<200),254
+GI #2 Tube Type,248
+O2 Flow (lpm) #2,248
+Impaired Skin Odor #4,247
+MDI #1 Puff,246
+Impaired Skin Cleanse #4,245
+Cervical Collar Status,244
+IV #1 Reason DC'D,244
+GI #2 Intub Site,242
+PT Splint #1 [Location],239
+Tunneling Present #2,238
+PT Splint #1 [Status],236
+Face to Face Eval (Non-Violent),235
+GI #2 Tube Status,235
+Undermining Present #2,235
+Arctic Sun Temp #1 Location,234
+bath,233
+Albumin (>3.2),232
+Impaired Skin Drainage #4,232
+Total Bili (0-1.5),230
+INV Line#4 [Type],228
+HOB Measurement,228
+HIGH MINUTE VOLUME,227
+Impaired Skin Wound Base #4,226
+Anxiety,226
+INV Line#4 [Site],226
+Paroxysmal Sweats,226
+Arterial O2 Saturation,226
+ImpSkin Character #3,225
+SBT Started,224
+Multi Lumen Zero/Calibrate,223
+Auditory Disturbance,219
+Incision Appearance #3,218
+Arctic Sun/Alsius Temp #1 C,216
+Tactile Disturbances,216
+Press Sore Site #2,215
+Headache,215
+Visual Disturbances,211
+IV #2 Reason DC'D,211
+Cuff Pressure-Airway,211
+Chest Tube Site #1,210
+Incision Site #3,210
+Flow-By (lpm),210
+Total Bili,206
+MDI #2 [Puff],206
+Differential-Polys,205
+Angio Site # 2,205
+Angio Appearance # 2,205
+RSBI Deferred,203
+Angio Dressing # 2,203
+MDI #2 [Drug],202
+OCAT - Lips Tongue Gums Palate,202
+"OCAT - Saliva secretions, Voice quality",201
+OCAT - Teeth,201
+Incision Closure #3,200
+Femoral Pulse [Right],200
+OCAT - Swallow,199
+Flow-by Sensitivity,198
+Angio Site #2,198
+ImpSkin #2 [Drain],198
+Seizure,198
+Readmit <48 hrs,196
+Admit from,194
+ImpSkin #1 [Amount],193
+Non-Violent Restraints Ordered,193
+High exhaled min vol,193
+CT #1 Dressing,192
+CAM-ICU MS change,186
+INV Line#4SiteAppear,186
+CT #1 Drainage,184
+Incontinent (estimate),184
+Insomnia,183
+Femoral Pulse R,183
+Inc #2 [Dressing],183
+Incision Drainage #3,181
+LVSW,179
+Nausea and Vomiting (CIWA),178
+Tremor (CIWA),177
+Agitation,176
+C.O.(thermodilution),176
+Cardiac Index,175
+SVR,174
+Post menopausal,174
+16 Gauge placed in the field,174
+Pressure Sore #1 [Stage],173
+LVSWI,173
+Baseline pain level,171
+ImpSkin Wound Base#3,170
+Stroke Volume,170
+Neurological Symptoms,169
+LCW,168
+Orient/Clouding Sensory,166
+Slurred Speech,165
+Incision Dressing #3,164
+RSBI Not Completed,164
+SBT Successfully Completed,164
+SVI,163
+PAP Alarm [Low],163
+LCWI,162
+Called Out,161
+RCW,160
+SVRI,160
+RVSW,159
+Height (cm),158
+Height,158
+Collar Care,158
+BSA - English,157
+Impaired Skin Drainage Amount #4,157
+ETT Re-taped,157
+O2 Flow (additional cannula),157
+BSA - Metric,157
+CT #1 Crepitus,157
+Dilantin,156
+CAM-ICU Inattention,156
+Midline Site Appear,155
+RCWI,154
+RVSWI,153
+ImpSkin #3 [Drain],152
+ImpSkin #1 [Width],151
+Precautions: Standard +,150
+PAP Alarm [High],149
+Pressure Sore #1 [Drainage],149
+KneeImmobilizeLoc [Right],148
+Femoral Pulse [Left],148
+Drowsiness,148
+Swan SVO2,147
+ICU Consent Signed,146
+Inc #1 [Amount],146
+Central Venous Pressure  Alarm - Low,145
+Dressing Status #3,145
+Central Venous Pressure Alarm - High,145
+Pressure Sore Odor#1,144
+Differential-Neuts,144
+MDI #2 Drug,144
+Impaired Skin Site #6,144
+Shivering Assessment,143
+Inc #2 [Drainage],142
+Ataxia,141
+Inc #2 [Status],137
+22 G Phlebitis Scale,137
+Incision Drainage Amount #3,136
+Blood Products,136
+Nursing Consultation,134
+Pacemaker Type,134
+Sitter,134
+Intra Cranial Pressure Alarm - Low,134
+Midline placed in outside facility,133
+Midline Dressing Occlusive,133
+Pacemaker Mode,133
+ImpSkin #1 [Length],132
+Sustained Nystagmus,130
+Amylase,130
+Intra Cranial Pressure Alarm - High,129
+PT Splint #2 [Location],128
+PressSoreTreatment#2,128
+22 G Infiltration Scale,127
+Pregnant,127
+Tunneling Present #4,126
+PT Splint #2 [Status],126
+GI Prophylaxis [Drug #2],125
+Undermining Present #4,125
+Knee Immobilizer Status,125
+ICP Line Zero/Calibrate,124
+Imp Skin Cleanse #3,123
+Angio Appearance #2 [Attribute 1],122
+Phenytoin (Dilantin),122
+18 Gauge Reason Discontinued,121
+Impaired Skin Site #5,119
+20 Gauge Reason Discontinued,119
+Vancomycin/Random,118
+Impaired Skin Type #5,118
+BATH,117
+Fibrinogen,116
+GI#2 Tube [Drain],115
+Angio Dressing #2,112
+GI [Guaiac],112
+Spiritual Support,112
+Feeding Weight,111
+Inc #2 [Closure],111
+Incision Cleansing #2,111
+CT #1 [Fluctuate],110
+Impaired Skin Treatment #5,108
+Imp Skin Cleanse #2,107
+Impaired Skin Type #6,106
+CT #1 [Leak],106
+MDI #2 Puff,105
+Incision Site #4,104
+Incision Appearance #4,104
+Dressing Status #4,104
+Incision Dressing #4,104
+Incision Closure #4,104
+Incision Drainage #4,104
+Differential-Bands,102
+Impaired Skin Width #4,101
+Femoral Pulse L,101
+Impaired Skin Length #4,101
+Inc #2 [Appearance],100
+IV #3 Reason DC'D,100
+Impaired Skin  - Dressing Status #3,99
+Radial Pulse [Right],99
+Pulmonary Artery Pressure mean,99
+Pulmonary Artery Pressure diastolic,99
+Pulmonary Artery Pressure systolic,99
+Sodium (whole blood),97
+Impaired Skin Width #3,97
+Impaired Skin Length #3,97
+Seizure Duration,96
+Radial Pulse [Left],96
+Surrounding Tissue #6,95
+Pressure Sore #1 [Heal],95
+Impaired Skin Treatment #6,94
+CK-MB fraction (%),94
+PressSoreCleansing#1,94
+Impaired Skin - Dressing Status  #4,94
+Pressure Ulcer Stage #4,93
+KneeImmobilizeLoc [Left],91
+INV#4 WaveformAppear,91
+Tunneling Present #3,90
+Violent Restraints,89
+CAM-ICU Altered LOC,88
+FEM ART MAP,87
+FEM ART BP,87
+SBT Deferred,85
+Impaired Skin Drainage #5,84
+Small Volume Neb Drug/Dose #1,82
+Incision Drainage Amount #4,82
+Range of Motion Location,81
+Warming [Device],81
+Pressure Sore Site#3,80
+Remote Alarm,79
+PressSoreWoundBase#2,78
+Chest Tube Site # 1,78
+Range of Motion Status,78
+GI #2 Tube Place Check,78
+Minute Volume (Set),78
+ImpSkin #2 [Width],78
+Troponin,78
+CT #1 Suction Type,78
+Blood Temperature CCO (C),78
+Impaired Skin Cleanse #5,77
+Impaired Skin Cleanse #6,77
+SvO2,76
+CT #1 Fluctuate,76
+Sheath Site Appear,76
+Cardiac Output (CCO),75
+Warming [Status],75
+Sheath placed in outside facility,74
+CT #1 Leak,74
+Chloride (whole blood),73
+Cerebral Perfusion Pressure Alarm - Low,73
+Sheath Line Dressing Occlusive,73
+GI#2 Tube PlaceCheck,72
+Legal Guardian,72
+Hematocrit (whole blood - calc),72
+Impaired Skin Wound Base #6,71
+Vancomycin (Trough),70
+ImpSkin #2 [Length],70
+Cerebral Perfusion Pressure Alarm - High,70
+Digoxin,70
+Edema #2 [Amount],70
+Pressure Sore #2 [Drainage],70
+Impaired Skin Drainage #6,70
+Edema #2 [Location],70
+Pressure Ulcer Stage #5,69
+Undermining Present #3,68
+Impaired Skin Wound Base #5,66
+Autoset/CPAP,66
+Temporary Pacemaker Type,65
+Pressure Sore #2 [Stage],65
+Impaired Skin Odor #6,65
+Arctic Sun/Alsius Set Temp,65
+Fibrinogen (150-400),65
+Passey Muir Valve in use,64
+Sheath Waveform Appear,64
+Pacer Rate,63
+Impaired Skin Length #6,63
+Compression device # 1,63
+Impaired Skin Width #6,63
+Impaired Skin  - Dressing Status #6,63
+Impaired Skin  - Dressing Status #5,62
+Tunneling Present #5,62
+Pressure Ulcer Stage #6,62
+Undermining Present #5,62
+Sedation Score,62
+Surrounding Tissue #5,62
+Impaired Skin Length #5,61
+Temporary Pacemaker Mode,61
+Impaired Skin Width #5,61
+Temporary Pacemaker Rate,60
+ART Blood Pressure Alarm Source,59
+Venous PvCO2,59
+Sed Rate,59
+Venous pH,59
+Tunneling Present #6,59
+Cuff Volume (mL),59
+Undermining Present #6,59
+Ramsey SedationScale,59
+Impaired Skin Odor #5,58
+HI/Minute/vol,58
+Venous PvO2,57
+Pressure Sore Odor#2,57
+Arterial Line Discontinued,57
+Chest Tube Site # 2,57
+High MV Limit,57
+CT #2 Suction Amount,57
+ART Blood Pressure Alarm - High,56
+CT #2 Dressing,56
+ART Blood Pressure Alarm - Low,56
+CT #2 Drainage,56
+Incision Packing #1,55
+Pacer Wire Condition,54
+Sheath Size,54
+EDVI,54
+INV Line#4 Zero/Cal,53
+Nausea and Vomiting,50
+CT #2 Suction Type,49
+Aggitation,49
+CT #2 Crepitus,49
+Tremor,49
+CT #2 Fluctuate,48
+Brachial Pulse L,47
+CT #2 Leak,46
+Popliteal Pulse R,45
+Arterial Line Tip Cultured,45
+Lipase,45
+Inc #2 [Amount],44
+Temporary Pacemaker Wires Atrial,44
+14 Gauge Site Appear,44
+14 Gauge Dressing Occlusive,44
+Temporary Pacemaker Wire Condition,44
+Temporary Pacemaker Wires Venticular,44
+GI Guaiac,44
+14 Gauge placed in outside facility,44
+PCWP,43
+Transcutan Pacer,43
+Impaired Skin Depth #3,42
+GI #2 Tube Place Method,42
+Indwelling Port (PortaCath) Site Appear,42
+Indwelling Port (PortaCath) Dressing Occlusive,42
+Compression device # 2,42
+Ventricular Pacemaker [mA],42
+HIGH MV,42
+PressSoreTreatment#3,41
+Low Peep,41
+Cordis/Introducer Dressing Occlusive,41
+ImpSkin #2 [Amount],41
+Pressure Sore #2 [Heal],41
+Cordis/Introducer Site Appear,41
+BIPAP-Mode,40
+Incision/Wound #3,40
+14 Gauge placed in the field,40
+Nicardipine mcg/k/mn,39
+BIPAP - EPAP,39
+Temporary Atrial Sens,39
+NMB Medication,39
+Ventricular Pacemaker [Sensitivity],39
+16 G Phlebitis Scale,38
+Popliteal Pulse L,38
+Orient/Clouding Sens,37
+Venous CO2(Calc),37
+Emesis Appearance,37
+GI [pH],37
+ImpSkin #3 [Amount],37
+16 G Infiltration Scale,36
+Spare Trach Present,36
+BIPAP - O2 lpm,36
+Sustained Nystamus,36
+Neg Insp Force(>-25),36
+Ventricular Pacemaker Sense [mV],36
+PressSoreCleansing#2,36
+Stool Guaiac QC,35
+Vital Cap (>1.0)L,35
+Pacer Wires Atrial,35
+Pacer Wires Vent,35
+Nerve Stimulated,34
+Ventricular Pacemaker Sense [mA],34
+Inc #3 [Dressing],34
+Vancomycin (Random),34
+Pressure Sore #1 [Width],33
+Impaired Skin Depth #4,33
+PH (Venous),33
+Cordis/Introducer placed in outside facility,33
+Inc #3 [Drainage],33
+Face Droop,32
+Angio Appearance #2 [Attribute 2],32
+BIPAP - IPAP,32
+Midline Placement Confirmed by X-ray,32
+Mixed Venous O2% Sat,32
+Temporary Ventricular Stim Setting mA,31
+PVR,31
+Sheath Zero/Calibrate,30
+Baseline Current/mA,30
+Tongue Deviation,30
+Multi Lumen Line Tip Cultured,30
+Impaired Skin Depth #2,30
+Impaired Skin Drainage Amount #5,29
+C Reactive Protein (CRP),29
+Ulnar Pulse R,29
+high minute volume,29
+Impaired Skin Site#4,28
+Pressure Sore #1 [Length],28
+Seizure Pads,28
+Phenobarbital,28
+PressSore Depth #1,28
+Transcut Pacer Rate,28
+Cuff Volume/units,28
+PVRI,28
+Cordis/Introducer Placement Confirmed by X-ray,28
+Differential-Atyps,27
+Bladder Irrigation,27
+Temporary Ventricular Sens,27
+IV #4 Reason DC'D,27
+Blood Transfusion Consent,26
+Vent Sens Thresh mV,26
+Temporary Ventricular Capture,26
+Temporary Atrial Capture,25
+Inc Cleansing #1,25
+Temporary Atrial Stim Setting mA,25
+Temporary Atrial Sens Setting mV,25
+Brachial Pulse R,25
+CAM-ICU RASS LOC,25
+high me alarm,25
+Temporary Venticular Stim Threshold mA,24
+Family Meeting,24
+Ventricular Pacemaker [Sense],24
+Temporary Venticular Sens Threshold mV,24
+22 Gauge Reason Discontinued,24
+TOF Response/Twitch,23
+Chest Tube Site #2,23
+Uric Acid,22
+Temporary Atrial Sens Threshold mV,22
+FIO2 Alarm-Low,22
+PressSoreWoundBase#3,22
+Temporary Atrial Stim Threshold mA,22
+Tylenol,22
+FIO2 Alarm-High,21
+PA Line cm Mark,21
+Ostomy,21
+Ventricular Pacemaker [Capture],21
+Multi Lumen Line Discontinued,21
+Atrial Pacemaker [mA],20
+Tinsp,20
+Ethanol,20
+CIWA Sum Total,20
+P4,20
+Capillary Refill [Right],20
+Anticipated Discharge,20
+Supine / Side-lying to Sit,20
+P5,20
+Inc #3 [Closure],20
+Transcut Pad Place,20
+PICC Line Tip Cultured,19
+PAR-Activity,19
+Vent Stim Thresh mA,19
+RT FEM A-LINE,19
+MDI #3 [Puff],19
+Capillary Refill [Left],19
+PAR-Oxygen saturation,19
+PAR-Circulation,19
+Pressure Sore #2 [Width],19
+PAR-Respiration,19
+Inc #3 [Appearance],19
+bedbath,19
+PAR-Consciousness,19
+av fistula,18
+Sheath Placement Confirmed by X-ray,18
+Ostomy Appearance,18
+ImpSkin #3 [Width],18
+GI #2 Tube Drainage,18
+MDI #3 [Drug],18
+right femoral sheath,18
+Transfer,18
+Pressure Sore #2 [Length],18
+Atrial Pacemaker [Sensitivity],18
+Transcutaneous Pacer Placement,18
+Dialysis Catheter Site Appear,18
+Pressure Sore #2 [Amount],18
+Vancomycin/Trough,18
+SBT Stopped,18
+Venous CO2 Pressure,17
+PCA 1 hour limit,17
+Manual BP [Systolic],17
+PCA  dose units,17
+LE Dressing,17
+PCA 1 hour limit units,17
+Venous O2 Pressure,17
+TCO2 (calc) Venous,17
+Rolling,17
+PCA dose,17
+PCA basal rate (mL/hour),17
+PCA medication,17
+PCA lockout (min),17
+TOF Response,16
+ImpSkin #3 [Length],16
+Pressure Sore #3 [Stage],16
+Restraint Device (Violent),16
+Rest O2 Sat - Aerobic Capacity,16
+ImpSkin Treatment #4,16
+PAR-Remain sedated,16
+Gentamycin/Random,16
+Incision/Wound #4,16
+TOF Twitch,16
+PCA total dose,16
+Current Used/mA,16
+Inc #4 [Dressing],16
+CCO PAC Placement Confirmed by X-ray,15
+CCO PAC Dressing Occlusive,15
+Activity O2 Sat - Aerobic Capacity,15
+bed bath,15
+Pressure Sore #3 [Drainage],15
+Inc #4 [Status],15
+Grooming,15
+PCA bolus,15
+UE Dressing,15
+CCO PAC placed in outside facility,15
+PCA bolus units,15
+Med Wasted [Drug],15
+PCA cleared,15
+Initials (2 RNs) [RN #1],15
+CCO PAC Site Appear,15
+CCO PAC Waveform Appear,15
+PCA attempt,15
+Rest HR - Aerobic Capacity,15
+Pressure Sore #1 [Amount],15
+HI/Minute/Vol,15
+FK506,15
+Inc #4 [Drainage],15
+FiO2 (Analyzed),14
+nebulizer,14
+Temporary Pacemaker Wires Ground,14
+PCA inject,14
+Pressure Sore Odor#3,14
+Impaired Skin Depth #5,14
+Brain Natiuretic Peptide (BNP),14
+Rest RR - Aerobic Capacity,14
+Activity HR - Aerobic Capacity,14
+Temporary Ventricular Sens Setting mV,14
+Total Protein,14
+Atrial Pacemaker Sense [mV],14
+Toileting,14
+Inc #3 [Status],14
+GI Guaiac QC,14
+Manual BP Mean(calc),14
+ImpSkin #4 [Drain],14
+D-Dimer,13
+Working Pressure,13
+Atr Stim Thresh mA,13
+Ulnar Pulse L,13
+Mixed Venous O2,13
+Activity RR - Aerobic Capacity,13
+PT Splint Location #1,13
+Medication Infusion Rate - Adjunctive Pain Management,13
+UE Bathing,13
+Atr Sens Thresh mV,13
+Uric Acid (2.7-7.0),13
+ImpSkin Character #4,13
+In-line Suction Catheter Changed,13
+PCA total dose units,13
+Atrial Pacemaker Sense [mA],13
+Dialysis Catheter Dressing Occlusive,12
+Dialysis Catheter placed in outside facility,12
+LE Bathing,12
+Low Exhaled Vt,12
+Recovery O2 Sat - Aerobic Capacity,12
+Knee Location - CPM,12
+Cash amount,12
+Chest Tube Site #3,12
+Dialysis Catheter Placement Confirmed by X-ray,12
+Sit to Stand,12
+Reason for Restraint (Violent),12
+Indwelling (PortaCath) Port Type,12
+ImpSkin Wound Base#4,12
+Dialysis Catheter Type,12
+16 Gauge Reason Discontinued,12
+Ndwelling Port (PortaCath) placed in outside facility,12
+LDL measured,11
+Hi Min Vent,11
+Recovery HR - Aerobic Capacity,11
+FEM A LINE,11
+Imp Skin Cleanse #4,11
+Manual BP [Diastolic],11
+PressSoreCleansing#3,11
+Site Appearance - Adjunctive Pain Management,11
+Self Feeding,11
+Hi Tidal Vol,11
+Impaired Skin Treatment #7,10
+Impaired Skin Site #7,10
+Recovery RR - Aerobic Capacity,10
+% Inspir. Time,10
+Impaired Skin Cleanse #7,10
+QTc,10
+Impaired Skin  - Dressing Status #7,10
+Impaired Skin Drainage #7,10
+D-Dimer (0-500),10
+TANK B,10
+HI MV,10
+TANK A,10
+Peak Flow (Calc),10
+Pause Time %,10
+Direct Bilirubin,10
+Emesis [Appearance],10
+Minimal Leak Present,10
+Impaired Skin Drainage Amount #7,10
+Surrounding Tissue #7,10
+Impaired Skin Type #7,10
+NIV Mask,10
+PAP Alarm Source,9
+AaDO2,9
+Traction/Immobile Location #1,9
+PT Splint Status #1,9
+PAO2,9
+Pulmonary Artery Pressure Alarm - Low,9
+Additional Gas (lpm),9
+Ammonia,9
+high ve,9
+Pulmonary Artery Pressure Alarm - High,9
+Tobacco use,9
+Med Wasted [Amount],9
+Cardiac Output (thermodilution),9
+trach care,9
+BEDBATH,8
+Initials (2 RNs) [RN #2],8
+MDI #3 Drug,8
+CT #2 [Fluctuate],8
+C.O. (fick),8
+Inc/Wound Packing #1,8
+DO2I,8
+Bed Alarms,8
+Pressure Sore #3 [Length],7
+DO2,7
+Trauma Line Site Appear,7
+Traction/Immobile #1,7
+Restraint/Seclusion Observer Sheet,7
+CT #3 Suction Amount,7
+Pressure Sore #3 [Width],7
+CT #3 Suction Type,7
+PressSore Depth #2,7
+O2AV,7
+O2AVI,7
+TRACH CARE,7
+zzO2AV,7
+Cartridge/Bag Change,7
+Trauma Line Dressing Occlusive,7
+CT #2 [Leak],7
+zzO2AVI,7
+Trauma Line Placement Confirmed by X-ray,7
+Trauma Line placed in outside facility,7
+Vancomycin/Peak,7
+Discharge to,7
+Auto-PEEP Level,7
+Tobramycin (Random),7
+vision fields,7
+Atrial Pacemaker [Sense],7
+Vasopressin  u/hr,7
+Permanent Pacemaker Rate,6
+Direct Bili,6
+Patient agrees with the above goals and is willing to participate in the rehabilitation program,6
+Popliteal Pulse [Right],6
+Circuit Changed,6
+heliox,6
+Pain (0-10),6
+Manual Blood Pressure Diastolic Left,6
+Tract/Imm Location#1,6
+PT Splint Location #2,6
+Total Protein(6.5-8),6
+MDI #3 Puff,6
+Manual Blood Pressure Systolic Left,6
+SvO2 SQI,6
+PA Catheter Placement Confirmed by X-ray,6
+Arctic Sun Temp #2 Location,6
+Direct Bili (0-0.3),6
+BiPap Mask,6
+Flow Rate (L/min),6
+Gentamicin (Trough),6
+PCA concentrations,6
+PO2 (Mixed Venous),6
+BiPap O2 Flow,6
+Atrial Pacemaker Threshold [Unit],6
+PA Catheter Site Appear,6
+PA Catheter placed in outside facility,6
+Airway problems,6
+PA Catheter Waveform Appear,6
+PA Catheter Dressing Occlusive,6
+Manual Blood Pressure Systolic Right,6
+Cortisol,6
+High MV,5
+Thrombin,5
+Gentamicin (Peak),5
+AV Fistula L Thrill,5
+Home Management,5
+Atrial Pacemaker Threshold [Value],5
+Pressure Sore #3 [Heal],5
+Community Integration,5
+GI pH,5
+Gentamycin/Trough,5
+BiPap EPAP,5
+Popliteal Pulse [Left],4
+Cordis/Introducer Line Tip Cultured,4
+Manual Blood Pressure Diastolic Right,4
+BiPap Mode,4
+Atrial Pacemaker [Capture],4
+Small Volume Neb Drug #2,4
+Sheath Line Discontinued,4
+TRACH SITE,4
+bath care,4
+Estimated Energy Needs/Kg,4
+Bed Rotation,4
+Estimated Protein Needs/Kg,4
+Shampoo,4
+Phenytoin (Free),4
+Restraints (Violent),4
+Restraints Ordered (Violent),4
+TRACH care,4
+Face to Face Eval (Violent),4
+Money Management,4
+Nares [Right],4
+PT Splint Status #2,4
+Recruitment Duration,4
+PressSore Depth #3,4
+Recruitment Mode,4
+CCO PAC Zero/Calibrate,4
+Bladder Pressure,4
+Recruitment Press,4
+Incision Packing #2,3
+Yawning,3
+CT #3 Leak,3
+Shivering,3
+Sweating,3
+Restlessness,3
+GI #3 Tube Place Method,3
+Graft/Flap Pulse,3
+Lacrimation,3
+Pupils,3
+AV Fistula L Bruit,3
+Vital Cap,3
+Abdominal Changes: Observation,3
+Changes in Temperature,3
+Muscle Aches,3
+ICP Line Discontinued,3
+Hi Ve,3
+Nausea and Vomiting (CINA),3
+Bedbath,3
+Tremor (CINA),3
+Nasal Congestion,3
+Goose Flesh,3
+IABP Mean,3
+CT #3 Crepitus,3
+Pinsp (Draeger only),3
+GI #3 Intub Site,3
+GI #3 Tube Place Check,3
+Gentamicin (Random),3
+Inc #4 [Closure],3
+GI #3 Tube Status,3
+GI #3 Tube Type,3
+Other (Activity); Specify,3
+CT #3 Drainage,3
+GU Irrigant Type,3
+CT #3 Dressing,3
+CT #3 Fluctuate,3
+BiPap IPAP,3
+shave,2
+GI Tube #3 [Status],2
+GI#3 tube PlaceCheck,2
+bed alarm,2
+GI#3 Intub Site,2
+14 G Infiltration Scale,2
+Re-admit < 48 hours,2
+14 G Phlebitis Scale,2
+CvO2,2
+Bed Alarm,2
+Hemodialysis Output,2
+Money given to hospital cashier,2
+Gentamycin/Peak,2
+Negative Insp. Force,2
+Ventricular Pacemaker Threshold [Unit],2
+Bath Care,2
+Inc #4 [Appearance],2
+AV Interval,2
+PICC Line Discontinued,2
+Pressure Sore #3 [Amount],2
+Inc Cleansing #2,1
+Inc Cleansing #4,1
+Dialysis Site Appear,1
+Dialysis Access Type,1
+Theophylline,1
+ACT (102-142),1
+Procan Napa,1
+Passive Leg Raise Performed,1
+BIPAP - Est. Vt,1
+Thrombin (16-21),1
+BIPAP - BPM,1
+Procan,1
+Dialysis Access Site,1
+Tobramycin (Peak),1
+ACT,1
+APNEA,1
+Rest RR - Aerobic Activity Response,1
+Rest HR -  Aerobic Activity Response,1
+Central Venous O2% Sat,1
+SVV (Arterial),1
+Arctic Sun Water Temp,1
+AV Fistula R Bruit,1
+Permanent Pacemaker Mode,1
+PA Catheter Zero/Calibrate,1
+14 Gauge Reason Discontinued,1
+Midline Tip Cultured,1
+Sheath Line Tip Cultured,1
+CCO PAC Line Tip Cultured,1
+Trauma Line Tip Cultured,1
+Cordis/Introducer Discontinued,1
+PA Catheter Discontinued,1
+Epidural Location,1
+CCO PAC Discontinued,1
+Trauma Line Discontinued,1
+Orthostatic BPd sitting,1
+Triple Introducer placed in outside facility,1
+Tobramycin (Trough),1
+Rest O2 Sat - Aerobic Activity Response,1
+Activity O2 sat - Aerobic Activity Response,1
+Recovery HR - Aerobic Activity Response,1
+Nares [Left],1
+Total Peripheral Resistance (TPR) (NICOM),1
+Stroke Volume Variation (SVV NICOM),1
+Stroke Volume Index (SVI NICOM),1
+Cardiac Output (CO NICOM),1
+Cardiac Index (CI NICOM),1
+Position - Recovery - Aerobic Activity Response,1
+Position - Activity - Aerobic Activity Response,1
+Position - Rest - Aerobic Activity Response,1
+CUFF PRESS.,1
+GI Tube #3 [Drain],1
+Recovery RR - Aerobic Activity Response,1
+Ventricular Pacemaker Threshold [Value],1
+Epidural Appearance,1
+Continuous Pressure Machine Status,1
+Small Volume Neb Dose #2,1
+Cont Neb - Med,1
+Orthostatic BPs sitting,1
+P Low (APRV),1
+Medication Bolus - Adjunctive Pain Management,1
+Recovery O2 sat - Aerobic Activity Response,1
+Enema administration,1

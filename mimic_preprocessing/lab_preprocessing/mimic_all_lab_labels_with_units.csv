@@ -1,0 +1,362 @@
+label,valueuom
+% Hemoglobin A1c,%
+24 hr Calcium,mg/24hr
+24 hr Creatinine,mg/24hr
+24 hr Protein,mg/24hr
+ADP,
+Absolute A1c,
+Absolute CD3 Count,#/uL
+Absolute CD4 Count,#/uL
+Absolute CD8 Count,#/uL
+Absolute Hemoglobin,
+Absolute Lymphocyte Count,#/uL
+Acanthocytes,
+Acetaminophen,ug/mL
+Acetone,
+Alanine Aminotransferase (ALT),IU/L
+Albumin,g/dL
+"Albumin, Pleural",g/dL
+"Albumin, Urine",mg/dL
+"Albumin/Creatinine, Urine",mg/g
+Alkaline Phosphatase,IU/L
+Alpha-Fetoprotein,ng/mL
+Alveolar-arterial Gradient,['mm Hg' nan]
+Ammonia,umol/L
+Amorphous Crystals,
+"Amphetamine Screen, Urine",
+Amylase,IU/L
+"Amylase, Ascites",IU/L
+"Amylase, Pleural",IU/L
+Anion Gap,mEq/L
+Anisocytosis,
+Anti-Mitochondrial Antibody,
+Anti-Neutrophil Cytoplasmic Antibody,
+Anti-Nuclear Antibody,
+"Anti-Nuclear Antibody, Titer",
+Anti-Smooth Muscle Antibody,
+Anticardiolipin Antibody IgG,GPL
+Anticardiolipin Antibody IgM,MPL
+Antithrombin,%
+Arachadonic Acid,
+Asparate Aminotransferase (AST),IU/L
+Atypical Lymphocytes,%
+Bacteria,
+Bands,%
+Barbiturate Screen,
+"Barbiturate Screen, Urine",
+Base Excess,mEq/L
+Basophilic Stippling,
+Basophils,%
+Benzodiazepine Screen,
+"Benzodiazepine Screen, Urine",
+Beta-2 Microglobulin,mg/L
+Bicarbonate,mEq/L
+"Bicarbonate, Urine",['mEq/L' nan]
+Bilirubin,['EU/dL' 'mg/dL']
+Bilirubin Crystals,
+"Bilirubin, Direct",mg/dL
+"Bilirubin, Indirect",mg/dL
+"Bilirubin, Total",mg/dL
+"Bilirubin, Total, Ascites",mg/dL
+Bite Cells,
+Blasts,%
+Bleeding Time,min
+Blood,['mg/dL' nan]
+Blood Culture Hold,
+Blood Parasite Smear,
+"Blood, Occult",
+Blue Top Hold,
+Burr Cells,
+C-Reactive Protein,['mg/dL' 'mg/L']
+C3,mg/dL
+C4,mg/dL
+CD19,
+"CD3 Cells, Percent",%
+"CD4 Cells, Percent",%
+CD4/CD8 Ratio,Ratio
+CD45,
+"CD8 Cells, Percent",%
+CK-MB Index,%
+Calcium Oxalate Crystals,
+Calcium Phosphate Crystals,
+"Calcium, Total",mg/dL
+"Calcium, Urine",mg/dL
+"Calculated Bicarbonate, Whole Blood",mEq/L
+Calculated TBG,Ratio
+Calculated Thyroxine (T4) Index,ug/dL
+Calculated Total CO2,['MEQ/L' 'mEq/L']
+Carbamazepine,ug/mL
+Carboxyhemoglobin,%
+Carcinoembyronic Antigen (CEA),ng/mL
+Cellular Cast,#/lpf
+Chloride,mEq/L
+"Chloride, Urine",mEq/L
+"Chloride, Whole Blood",mEq/L
+Cholesterol Crystals,
+Cholesterol Ratio (Total/HDL),Ratio
+"Cholesterol, HDL",mg/dL
+"Cholesterol, LDL, Calculated",mg/dL
+"Cholesterol, LDL, Measured",mg/dL
+"Cholesterol, Total",mg/dL
+"Cocaine, Urine",
+Collagen,
+Cortisol,ug/dL
+Creatine Kinase (CK),IU/L
+"Creatine Kinase, MB Isoenzyme",ng/mL
+Creatinine,mg/dL
+"Creatinine, Ascites",mg/dL
+"Creatinine, Urine",mg/dL
+Cryoglobulin,
+Cyclosporin,ng/mL
+D-Dimer,['ng/mL' nan]
+Digoxin,ng/mL
+EDTA Hold,
+Elliptocytes,
+Eosinophil Count,#/uL
+Eosinophils,['%' nan]
+Epinepherine,
+Epithelial Cells,#/hpf
+Estimated GFR (MDRD equation),
+Ethanol,mg/dL
+Factor IX,%
+Factor VIII,%
+Ferritin,['ng/mL' 'ng/ml']
+Fibrin Degradation Products,ug/mL
+"Fibrinogen, Functional",mg/dL
+Fluid Type,
+Folate,ng/mL
+Free Calcium,mmol/L
+GR HOLD,
+Gamma Glutamyltransferase,IU/L
+Gentamicin,ug/mL
+Globulin,g/dL
+Glucose,mg/dL
+"Glucose, Ascites",mg/dL
+"Glucose, CSF",mg/dL
+"Glucose, Pleural",mg/dL
+"Glucose, Urine",mg/dL
+Granular Casts,#/lpf
+Granulocyte Count,#/uL
+Green Top Hold (plasma),
+H/O Smear,
+"HCG, Urine, Qualitative",+/-
+HIV Antibody,
+Haptoglobin,['mg/dL' 'MG/DL']
+Heinz Body Prep,
+Hematocrit,%
+"Hematocrit, Calculated",%
+"Hematocrit, Pleural",%
+Hemoglobin,g/dL
+Hemoglobin A2,%
+Hemoglobin C,%
+Hemoglobin F,%
+Hemogloblin A,%
+Hemogloblin S,%
+Hemosiderin,
+"Heparin, LMW",U/mL
+Hepatitis A Virus Antibody,['Pos/Neg' nan]
+Hepatitis A Virus IgM Antibody,
+"Hepatitis B Core Antibody, IgM",
+Hepatitis B Surface Antibody,
+Hepatitis B Surface Antigen,
+Hepatitis B Virus Core Antibody,
+Hepatitis C Virus Antibody,
+Homocysteine,umol/L
+Human Chorionic Gonadotropin,mIU/mL
+Hyaline Casts,#/lpf
+Hypochromia,
+INR(PT),
+Immunofixation,
+"Immunofixation, Urine",
+Immunoglobulin A,mg/dL
+Immunoglobulin G,mg/dL
+Immunoglobulin M,mg/dL
+Immunophenotyping,
+Inhibitor Screen,
+Inpatient Hematology/Oncology Smear,
+Intubated,
+Iron,ug/dL
+"Iron Binding Capacity, Total",ug/dL
+"Joint Crystals, Birefringence",
+"Joint Crystals, Location",
+"Joint Crystals, Number",
+"Joint Crystals, Shape",
+Kappa,
+Ketone,mg/dL
+Lactate,mmol/L
+Lactate Dehydrogenase (LD),IU/L
+"Lactate Dehydrogenase, Ascites",IU/L
+"Lactate Dehydrogenase, CSF",IU/L
+"Lactate Dehydrogenase, Pleural",IU/L
+Lambda,
+Large Platelets,
+Length of Urine Collection,
+Leukocytes,
+Light Green Top Hold,
+Lipase,IU/L
+Lithium,mmol/L
+Lupus Anticoagulant,
+Lymphocytes,%
+"Lymphocytes, Percent",%
+Lymphs,%
+MCH,pg
+MCHC,%
+MCV,fL
+Macrocytes,
+Macrophage,%
+Macrophages,%
+Magnesium,mg/dL
+"Magnesium, Urine",mg/dL
+Marijuana,
+Mesothelial Cells,%
+Mesothelial cells,%
+Metamyelocytes,%
+"Methadone, Urine",
+Methemoglobin,%
+Microcytes,
+Monocytes,%
+Monos,%
+Myelocytes,%
+"Myoglobin, Urine",
+N-Acetylprocainamide (NAPA),ug/mL
+NTproBNP,pg/mL
+Neutrophils,%
+Nitrite,
+NonSquamous Epithelial Cell,#/hpf
+Nucleated Red Cells,%
+O2 Flow,L/min
+"Opiate Screen, Urine",
+"Osmolality, Measured",['MOSM/L' 'mOsm/kg' 'MOSM/KG']
+"Osmolality, Stool",mOsm/kg
+"Osmolality, Urine",mOsm/kg
+Other,%
+Other Cell,%
+Other Cells,%
+Ovalocytes,
+Oxygen,[nan '%']
+Oxygen Saturation,[nan '%']
+PEEP,
+"PEP, CSF",
+PT,['sec' 'SECONDS']
+PTT,sec
+Pappenheimer Bodies,
+Parathyroid Hormone,pg/mL
+Pencil Cells,
+Phenobarbital,ug/mL
+Phenytoin,ug/mL
+"Phenytoin, Free",ug/mL
+"Phenytoin, Percent Free",%
+Phosphate,mg/dL
+"Phosphate, Urine",mg/dL
+Plasma,%
+Plasma Cells,%
+Platelet Count,K/uL
+Platelet Smear,
+Poikilocytosis,
+Polychromasia,
+Polys,%
+Potassium,mEq/L
+"Potassium, Urine",mEq/L
+"Potassium, Whole Blood",mEq/L
+Procainamide,ug/mL
+Prolactin,ng/mL
+Promyelocytes,%
+Prostate Specific Antigen,ng/mL
+"Prot. Electrophoresis, Urine",['+/-' nan]
+Protein,mg/dL
+"Protein C, Antigen",%
+"Protein C, Functional",%
+Protein Electrophoresis,
+"Protein S, Antigen",%
+"Protein S, Functional",%
+"Protein, Total",g/dL
+Protein/Creatinine Ratio,Ratio
+Quantitative G6PD,U/g/Hb
+RBC,#/hpf
+RBC Clumps,
+"RBC, Ascites",#/uL
+"RBC, CSF",#/uL
+"RBC, Joint Fluid",#/uL
+"RBC, Other Fluid",#/uL
+"RBC, Pleural",#/uL
+RDW,%
+Red Blood Cell Fragments,
+Red Blood Cells,m/uL
+Red Top Hold,
+Renal Epithelial Cells,#/hpf
+Required O2,
+"Reticulocyte Count, Automated",%
+"Reticulocyte Count, Manual",%
+Rheumatoid Factor,['IU/mL' 'I.U.']
+Ristocetin,
+SPECIMEN TYPE,
+Salicylate,mg/dL
+Schistocytes,
+Sedimentation Rate,mm/hr
+Serum Viscosity, 
+Sickle Cell Preparation,
+Sodium,mEq/L
+"Sodium, Urine",mEq/L
+"Sodium, Whole Blood",mEq/L
+Specific Gravity, 
+Sperm,
+Spherocytes,
+Target Cells,
+Teardrop Cells,
+Temperature,
+Theophylline,['ug/ml' 'ug/mL']
+Thrombin,sec
+Thyroid Stimulating Hormone,['uIU/mL' 'uU/ML']
+Thyroxine (T4),ug/dL
+"Thyroxine (T4), Free",['ng/dL' 'ng/dl']
+Tidal Volume,
+"Tissue Transglutaminase Ab, IgA",units
+Tobramycin,ug/mL
+"Total Protein, Ascites",g/dL
+"Total Protein, CSF",mg/dL
+"Total Protein, Pleural",g/dL
+"Total Protein, Urine",mg/dL
+Transferrin,mg/dL
+Transitional Epithelial Cells,#/hpf
+Tricyclic Antidepressant Screen,
+Triglycerides,['MG/DL' 'mg/dL']
+Triiodothyronine (T3),ng/dL
+Triple Phosphate Crystals,
+Troponin I,ng/ml
+Troponin T,['ng/mL' 'ng/ml']
+Uhold,
+Uptake Ratio,Ratio
+Urea Nitrogen,mg/dL
+"Urea Nitrogen, Urine",mg/dL
+Uric Acid,mg/dL
+Uric Acid Crystals,
+"Uric Acid, Urine",['MG/DL' 'mg/dL']
+Urine Appearance,
+"Urine Casts, Other",#/lpf
+Urine Color,
+"Urine Crystals, Other",
+Urine Fat Bodies,
+Urine Mucous,
+Urine Specimen Type,
+Urine Volume,mL
+Urobilinogen,['EU/dL' 'mg/dL']
+Valproic Acid,ug/mL
+Vancomycin,ug/mL
+Ventilation Rate,
+Ventilator,
+Vitamin B12,pg/mL
+WBC,#/hpf
+WBC Clumps,
+WBC Count,K/uL
+"WBC, Ascites",#/uL
+"WBC, CSF",#/uL
+"WBC, Joint Fluid",#/uL
+"WBC, Other Fluid",#/uL
+"WBC, Pleural",#/uL
+White Blood Cells,K/uL
+Yeast,
+Young Cells,%
+pCO2,['MM HG' 'mm Hg']
+pH,['units' 'UNITS' nan]
+pO2,['MM HG' 'mm Hg']
+tacroFK,ng/mL
