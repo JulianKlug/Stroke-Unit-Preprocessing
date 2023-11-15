@@ -95,9 +95,11 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
                                            .case_admission_id.nunique()
                                            for time_bin in range(desired_time_range)]
 
-            missingness_df = missingness_df.append(
-                pd.DataFrame([[variable, n_missing_cids_overall] + n_missing_cids_per_time_bin],
-                             columns=missingness_df_columns))
+            missingness_df = pd.concat([
+                                        missingness_df,
+                                        pd.DataFrame([[variable, n_missing_cids_overall] + n_missing_cids_per_time_bin],
+                                                     columns=missingness_df_columns)
+                                               ], ignore_index=True)
 
         missingness_df.to_csv(os.path.join(log_dir, 'missingness.csv'), index=False)
 
@@ -120,12 +122,25 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
         n_missing_cids_overall = df.case_admission_id.nunique() - df[
             df.sample_label == sample_label].case_admission_id.nunique()
 
-        if sample_label == 'FIO2':
+        ## Special cases for imputation of first timebin: ##
+        # for sample_labels with impute_missing_as defined (other than locf) use this value for imputation of first timebin
+        if not (imputed_missing_df[(imputed_missing_df.sample_label == sample_label)]
+                            .impute_missing_as.isin(['locf', np.NAN]).all()):
+            # impute with prespecified value
+            imputed_tp0_value = imputed_missing_df[(imputed_missing_df.sample_label == sample_label)].impute_missing_as.iloc[0]
+            imputation_method = 'prespecified'
+            imputation_range = 'overall'
+            imputation_suffix = '_prespecified_imputed'
+
+        elif sample_label == 'FIO2':
             # for FIO2, impute with 21.0%
             imputed_tp0_value = 21.0
             imputation_method = 'default FiO2'
             imputation_range = 'overall'
+            imputation_suffix = '_prespecified_imputed'
 
+
+        ## General case for imputation of first timebin: ##
         elif (n_missing_cids_overall > 2/3 * df.case_admission_id.nunique()) & (reference_population_imputation_path != ''):
         #  if sample label has a lot of missing values (~50%), then use mean/median of the reference population
             if sample_label in categorical_vars:
@@ -140,6 +155,8 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
             labels_imputed_from_reference_population.append([sample_label, imputed_tp0_value, len(patients_with_no_sample_label_tp0)])
             imputation_method = 'reference_population_median'
             imputation_range = 'reference_population'
+            imputation_suffix = '_reference_pop_imputed'
+
         elif sample_label in categorical_vars:
             # for categorical vars, impute with mode
             n_missing_cids_tp0 = len(patients_with_no_sample_label_tp0)
@@ -152,6 +169,8 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
                         imputed_missing_df.relative_sample_date_hourly_cat == 0)].value.mode()[0]
                 imputation_range = 'tp0'
             imputation_method = 'mode'
+            imputation_suffix = '_pop_imputed'
+
         else:
             # for numerical vars, impute with median
             n_missing_cids_tp0 = len(patients_with_no_sample_label_tp0)
@@ -164,24 +183,33 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
                         imputed_missing_df.relative_sample_date_hourly_cat == 0)].value.median()
                 imputation_range = 'tp0'
             imputation_method = 'median'
+            imputation_suffix = '_pop_imputed'
+
         if verbose:
             print(
                 f'{len(patients_with_no_sample_label_tp0)} patients with no {sample_label} in first timebin for which {imputed_tp0_value} was imputed')
 
+        ## Reintroduce missing tp0 values for sample_label ##
         sample_label_original_source = \
             imputed_missing_df[imputed_missing_df.sample_label == sample_label].source.mode(dropna=True)[0]
 
         imputed_sample_label = pd.DataFrame({'case_admission_id': list(patients_with_no_sample_label_tp0),
                                              'sample_label': sample_label,
                                              'relative_sample_date_hourly_cat': 0,
-                                             'source': f'{sample_label_original_source}_pop_imputed',
-                                             'value': imputed_tp0_value})
+                                             'source': f'{sample_label_original_source}{imputation_suffix}',
+                                             'value': imputed_tp0_value,
+                                             'impute_missing_as':
+                                                 imputed_missing_df[imputed_missing_df.sample_label == sample_label]
+                                                                            .impute_missing_as.mode(dropna=False)[0]},
+                                            )
 
         # impute missing values for sample_label in first timebin
-        imputed_missing_df = imputed_missing_df.append(imputed_sample_label, ignore_index=True)
+        imputed_missing_df = pd.concat([imputed_missing_df,
+                                        imputed_sample_label], ignore_index=True)
 
-        imputation_parameters_df = imputation_parameters_df.append(
-            pd.DataFrame([[sample_label, imputed_tp0_value, imputation_method, imputation_range]], columns=imputation_parameters_columns))
+        imputation_parameters_df = pd.concat([imputation_parameters_df,
+            pd.DataFrame([[sample_label, imputed_tp0_value, imputation_method, imputation_range]], columns=imputation_parameters_columns)
+                                             ], ignore_index=True)
 
     if log_dir != '':
         if (reference_population_imputation_path != ''):
@@ -193,17 +221,34 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
         imputation_parameters_df.to_csv(os.path.join(log_dir, 'tp0_imputation_parameters.csv'), index=False)
 
     # following missing values (timebin > 0)
-    # -> Fill missing timebin values by last observation carried forward
+    # -> Fill missing timebin values by last observation carried forward (or as prespecified in impute_missing_as)
     if verbose:
         print('Fill missing values via LOCF.')
 
+    imputed_missing_df.impute_missing_as = imputed_missing_df.impute_missing_as.fillna('locf')
+
+    # add missing timebins for each case_admission_id / sample_label combination
     locf_imputed_missing_df = imputed_missing_df.groupby(['case_admission_id', 'sample_label']).apply(
         lambda x: x.set_index('relative_sample_date_hourly_cat').reindex(range(0, 72)))
-    locf_imputed_missing_df.value = locf_imputed_missing_df.value.fillna(method='ffill')
     locf_imputed_missing_df.sample_label = locf_imputed_missing_df.sample_label.fillna(method='ffill')
     locf_imputed_missing_df.case_admission_id = locf_imputed_missing_df.case_admission_id.fillna(method='ffill')
 
+    # for imputation via locf, the impute_missing_as column is set to np.NAN
+    # (defined previously, only to allow imputation via locf for impute_missing_as itself)
+    locf_imputed_missing_df.impute_missing_as = locf_imputed_missing_df.impute_missing_as.fillna(method='ffill')
+    locf_imputed_missing_df.loc[locf_imputed_missing_df.impute_missing_as == 'locf', 'impute_missing_as'] = np.NAN
+
+    # impute missing values as specified in impute_missing_as (for those that are not np.NAN)
+    locf_imputed_missing_df.value = locf_imputed_missing_df.value.fillna(locf_imputed_missing_df.impute_missing_as)
+    # impute missing values with last observation carried forward (for all other missing values)
+    locf_imputed_missing_df.value = locf_imputed_missing_df.value.fillna(method='ffill')
+
+
     locf_imputed_missing_df['source_imputation'] = locf_imputed_missing_df.source.apply(lambda x: '' if type(x) == str else np.nan)
+    # mark imputed values through prespecified imputation
+    locf_imputed_missing_df.loc[~locf_imputed_missing_df.impute_missing_as.isna(), 'source_imputation'] = \
+                            locf_imputed_missing_df[~locf_imputed_missing_df.impute_missing_as.isna()].fillna('_prespecified_imputed')
+    # mark imputed values through locf
     locf_imputed_missing_df.source_imputation = locf_imputed_missing_df.source_imputation.fillna('_locf_imputed')
     locf_imputed_missing_df.source = locf_imputed_missing_df.source.fillna(method='ffill')
     locf_imputed_missing_df.source += locf_imputed_missing_df.source_imputation

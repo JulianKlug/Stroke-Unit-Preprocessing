@@ -1,4 +1,14 @@
 import pandas as pd
+import numpy as np
+
+def parse_time(time_str):
+    try:
+        return pd.to_datetime(time_str, format='%H:%M').strftime('%H:%M')
+    except ValueError:
+        try:
+            return pd.to_datetime(time_str, format='%H:%M:%S').strftime('%H:%M')
+        except ValueError:
+            return np.NaN
 
 
 def set_sample_date(stroke_registry_df):
@@ -6,6 +16,9 @@ def set_sample_date(stroke_registry_df):
     Set sample date to stroke onset or arrival at hospital, whichever is later
     """
     datatime_format = '%d.%m.%Y %H:%M'
+    stroke_registry_df['Arrival time'] = stroke_registry_df['Arrival time'].apply(parse_time)
+    stroke_registry_df['Onset time'] = stroke_registry_df['Onset time'].apply(parse_time)
+
     stroke_registry_df['arrival_dt'] = pd.to_datetime(stroke_registry_df['Arrival at hospital'],
                                                       format='%Y%m%d').dt.strftime('%d.%m.%Y') + ' ' + \
                                        pd.to_datetime(stroke_registry_df['Arrival time'], format='%H:%M',

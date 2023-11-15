@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-from preprocessing.geneva_stroke_unit_preprocessing.patient_selection.restrict_to_patient_selection import restrict_to_patient_selection
-from preprocessing.geneva_stroke_unit_preprocessing.utils import create_registry_case_identification_column
+from geneva_stroke_unit_preprocessing.patient_selection.restrict_to_patient_selection import restrict_to_patient_selection
+from geneva_stroke_unit_preprocessing.utils import create_registry_case_identification_column
 
 outcome_columns = ["Symptomatic ICH",
 "Symptomatic ICH date",

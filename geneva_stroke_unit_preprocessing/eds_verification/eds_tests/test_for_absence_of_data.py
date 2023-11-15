@@ -1,4 +1,4 @@
-from preprocessing.geneva_stroke_unit_preprocessing.variable_assembly.variable_database_assembly import assemble_feature_database
+from geneva_stroke_unit_preprocessing.variable_assembly.variable_database_assembly import assemble_feature_database
 import pandas as pd
 
 def test_for_absence_of_data(data_path, admission_data_path, patient_selection_path):

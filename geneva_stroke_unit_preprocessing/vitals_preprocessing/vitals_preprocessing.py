@@ -2,7 +2,7 @@ import numpy as np
 import os
 import pandas as pd
 
-from preprocessing.geneva_stroke_unit_preprocessing.utils import create_ehr_case_identification_column, restrict_variable_to_possible_ranges, \
+from geneva_stroke_unit_preprocessing.utils import create_ehr_case_identification_column, restrict_variable_to_possible_ranges, \
     safe_conversion_to_numeric
 
 columns_to_drop = ['nr', 'patient_id', 'eds_end_4digit', 'eds_manual', 'DOB', 'begin_date',

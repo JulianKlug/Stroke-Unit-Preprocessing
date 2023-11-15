@@ -33,7 +33,7 @@ def detect_overwritten_patient_ids(df, eds_df, verbose=False):
 if __name__ == '__main__':
     import argparse, os
     import pandas as pd
-    from preprocessing.geneva_stroke_unit_preprocessing.variable_assembly.variable_database_assembly import load_data_from_main_dir
+    from geneva_stroke_unit_preprocessing.variable_assembly.variable_database_assembly import load_data_from_main_dir
 
     parser = argparse.ArgumentParser(description='Detects if patient_id is overwritten by eds_final_patient_id')
     parser.add_argument('-d', '--data_path', help='Path to extracted_data', required=True)

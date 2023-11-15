@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+# TODO: Set special flag in variable df to explicit resampling strategy (median, max, min, etc.)
 VARIABLES_TO_DOWN_SAMPLE = [
     'NIHSS',
     'oxygen_saturation',
@@ -11,9 +12,14 @@ VARIABLES_TO_DOWN_SAMPLE = [
     'respiratory_rate'
 ]
 
+VARIABLES_TO_SAMPLE_TO_MIN = [
+    'anti_hypertensive_strategy'
+]
+
 
 def resample_to_hourly_features(df: pd.DataFrame, verbose=True,
-                                variables_to_down_sample: list = VARIABLES_TO_DOWN_SAMPLE) -> pd.DataFrame:
+                                variables_to_down_sample: list = VARIABLES_TO_DOWN_SAMPLE,
+                                variables_to_sample_to_min: list = VARIABLES_TO_SAMPLE_TO_MIN) -> pd.DataFrame:
     """
     Resample the dataframe to hourly values.
     Variables in variables_to_down_sample are down sampled to hourly values (median, max, min). For all other variables, if more than one sample per hour is present, take the median
@@ -85,13 +91,25 @@ def resample_to_hourly_features(df: pd.DataFrame, verbose=True,
         temp_df = pd.concat([median_variable_df, max_variable_df, min_variable_df], axis=0)
         # all variables to downsample are from EHR
         temp_df['source'] = 'EHR'
-        resampled_df = resampled_df.append(temp_df)
+        resampled_df = pd.concat([resampled_df, temp_df], axis=0, ignore_index=True)
         # drop all rows of sample label variable
         resampled_df = resampled_df[resampled_df.sample_label != variable]
 
+    for variable in variables_to_sample_to_min:
+        min_variable_df = df[df.sample_label == variable].groupby([
+            'case_admission_id',
+            'relative_sample_date_hourly_cat'
+        ])['value'].min().reset_index()
+        min_variable_df['sample_label'] = f'{variable}'
+        min_variable_df['source'] = df[df.sample_label == variable]['source'].mode()[0]
+        min_variable_df['impute_missing_as'] = df[df.sample_label == variable]['impute_missing_as'].mode()[0]
+        # drop old rows of the variable
+        resampled_df = resampled_df[resampled_df.sample_label != variable]
+        resampled_df = pd.concat([resampled_df, min_variable_df], axis=0, ignore_index=True)
+
     all_other_vars = [sample_label for sample_label in
                       df.sample_label.unique()
-                      if sample_label not in variables_to_down_sample]
+                      if sample_label not in variables_to_down_sample + variables_to_sample_to_min]
 
     # for all other variables, when more than one sample per hour is present, take the median
     for variable in all_other_vars:
@@ -109,8 +127,7 @@ def resample_to_hourly_features(df: pd.DataFrame, verbose=True,
         resampled_df = \
             resampled_df[
                 resampled_df.sample_label != variable]
-        resampled_df = resampled_df.append(
-            median_variable_df)
+        resampled_df = pd.concat([resampled_df, median_variable_df], axis=0, ignore_index=True)
 
     assert (resampled_df.groupby(['case_admission_id', 'relative_sample_date_hourly_cat',
                            'sample_label']).count().reset_index().value <= 1).all(), \

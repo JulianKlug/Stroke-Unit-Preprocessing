@@ -1,6 +1,6 @@
 import pandas as pd
 
-from preprocessing.geneva_stroke_unit_preprocessing.utils import create_ehr_case_identification_column
+from geneva_stroke_unit_preprocessing.utils import create_ehr_case_identification_column
 
 
 def test_registry_and_extraction_start_date(registry_patient_selection_path, eds_j1_path):

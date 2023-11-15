@@ -3,8 +3,8 @@ import os
 import numpy as np
 import pandas as pd
 
-from preprocessing.geneva_stroke_unit_preprocessing.patient_selection.filter_ehr_patients import filter_ehr_patients
-from preprocessing.geneva_stroke_unit_preprocessing.utils import remove_french_accents_and_cedillas_from_dataframe, create_ehr_case_identification_column
+from geneva_stroke_unit_preprocessing.patient_selection.filter_ehr_patients import filter_ehr_patients
+from geneva_stroke_unit_preprocessing.utils import remove_french_accents_and_cedillas_from_dataframe, create_ehr_case_identification_column
 
 columns_to_drop = ['nr', 'patient_id', 'eds_end_4digit', 'eds_manual', 'DOB', 'begin_date',
                    'end_date', 'death_date', 'death_hosp', 'eds_final_id',
@@ -20,7 +20,7 @@ equivalent_labels_path = os.path.join(os.path.dirname(__file__), 'equivalent_lab
 # defining desired units of measure
 dosage_units_path = os.path.join(os.path.dirname(__file__), 'dosage_units.csv')
 # defining selected variables path (path to the variable selection file)
-selected_variables_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'variable_assembly/selected_variables.xlsx')
+selected_variables_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'variable_assembly/selected_variables_example.xlsx')
 
 blood_material_equivalents = ['sga', 'sgv', 'sgvm', 'sgc', 'sgv ponction', 'sgv cathéter', 'sga cathéter', 'cathéter artériel', 'cathéter veineux', 'plasma', 'Sang', 'sg cordon',
                               'sgv catheter', 'sga catheter', 'catheter arteriel', 'catheter veineux']

@@ -2,8 +2,8 @@ import pandas as pd
 import os
 import numpy as np
 
-from preprocessing.geneva_stroke_unit_preprocessing.patient_selection.filter_ehr_patients import filter_ehr_patients
-from preprocessing.geneva_stroke_unit_preprocessing.utils import create_ehr_case_identification_column, correct_overwritten_patient_id
+from geneva_stroke_unit_preprocessing.patient_selection.filter_ehr_patients import filter_ehr_patients
+from geneva_stroke_unit_preprocessing.utils import create_ehr_case_identification_column, correct_overwritten_patient_id
 
 
 def restrict_variable_to_possible_ranges(df, variable_name, possible_value_ranges, verbose=False):

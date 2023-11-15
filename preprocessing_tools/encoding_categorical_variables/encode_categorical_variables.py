@@ -91,8 +91,10 @@ def encode_categorical_variables(df: pd.DataFrame, reference_categorical_encodin
             # other values
             other_categories = [col_name.split(str(categorical_variable).lower() + '_')[-1] for col_name in
                                     set(dummy_coded_temp.columns) - set(one_hot_encoded_df.columns)]
-            log_df = log_df.append(pd.DataFrame([[categorical_variable, baseline_value, other_categories]],
-                                                columns=log_columns))
+            log_df = pd.concat([log_df,
+                               pd.DataFrame([[categorical_variable, baseline_value, other_categories]],
+                                                columns=log_columns)],
+                               ignore_index=True)
 
         if verbose:
             print(f'Baseline for {categorical_variable}: {baseline_value}')
@@ -100,9 +102,10 @@ def encode_categorical_variables(df: pd.DataFrame, reference_categorical_encodin
         dummy_coded_temp.columns = [str(col).lower().replace(' ', '_') for col in dummy_coded_temp.columns]
         dummy_coded_temp.drop(columns=['sample_label'], inplace=True)
         dummy_coded_temp = dummy_coded_temp.melt(
-            id_vars=['case_admission_id', 'sample_date', 'source', 'first_sample_date', 'relative_sample_date'],
+            id_vars=['case_admission_id', 'sample_date', 'source', 'first_sample_date', 'relative_sample_date',
+                     'impute_missing_as'],
             var_name='sample_label', value_name='value')
-        one_hot_encoded_df = one_hot_encoded_df.append(dummy_coded_temp)
+        one_hot_encoded_df = pd.concat([one_hot_encoded_df, dummy_coded_temp], ignore_index=True)
 
         # drop original non-binary categorical variable
         one_hot_encoded_df = one_hot_encoded_df[

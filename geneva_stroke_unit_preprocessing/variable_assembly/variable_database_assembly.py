@@ -1,19 +1,22 @@
 import pandas as pd
 import os
 
-from preprocessing.geneva_stroke_unit_preprocessing.patient_selection.filter_ehr_patients import filter_ehr_patients
-from preprocessing.geneva_stroke_unit_preprocessing.patient_selection.restrict_to_patient_selection import restrict_to_patient_selection
-from preprocessing.geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.admission_params_preprocessing import preprocess_admission_data
-from preprocessing.geneva_stroke_unit_preprocessing.lab_preprocessing.lab_preprocessing import preprocess_labs
-from preprocessing.geneva_stroke_unit_preprocessing.scales_preprocessing.scales_preprocessing import preprocess_scales
-from preprocessing.geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.timing_params_preprocessing import preprocess_timing_params
-from preprocessing.geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.treatment_params_preprocessing import \
+from geneva_stroke_unit_preprocessing.patient_selection.filter_ehr_patients import filter_ehr_patients
+from geneva_stroke_unit_preprocessing.patient_selection.restrict_to_patient_selection import restrict_to_patient_selection
+from geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.admission_params_preprocessing import preprocess_admission_data
+from geneva_stroke_unit_preprocessing.lab_preprocessing.lab_preprocessing import preprocess_labs
+from geneva_stroke_unit_preprocessing.scales_preprocessing.scales_preprocessing import preprocess_scales
+from geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.timing_params_preprocessing import preprocess_timing_params
+from geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.treatment_params_preprocessing import \
     treatment_params_preprocessing
-from preprocessing.geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.utils import set_sample_date
-from preprocessing.geneva_stroke_unit_preprocessing.utils import create_registry_case_identification_column
-from preprocessing.geneva_stroke_unit_preprocessing.variable_assembly.variable_selection import restrict_to_selected_variables
-from preprocessing.geneva_stroke_unit_preprocessing.ventilation_preprocessing.ventilation_preprocessing import preprocess_ventilation
-from preprocessing.geneva_stroke_unit_preprocessing.vitals_preprocessing.vitals_preprocessing import preprocess_vitals
+from geneva_stroke_unit_preprocessing.stroke_registry_params_preprocessing.utils import set_sample_date
+from geneva_stroke_unit_preprocessing.utils import create_registry_case_identification_column
+from geneva_stroke_unit_preprocessing.variable_assembly.variable_selection import restrict_to_selected_variables
+from geneva_stroke_unit_preprocessing.ventilation_preprocessing.ventilation_preprocessing import preprocess_ventilation
+from geneva_stroke_unit_preprocessing.vitals_preprocessing.vitals_preprocessing import preprocess_vitals
+
+from geneva_stroke_unit_preprocessing.prescription_preprocessing.anti_hypertensive_strategy_extraction import \
+    extract_anti_hypertensive_strategy
 
 
 def load_data_from_main_dir(data_path: str, file_start: str) -> pd.DataFrame:
@@ -37,7 +40,9 @@ def get_first_sample_date(df):
 
 
 def assemble_variable_database(raw_data_path: str, stroke_registry_data_path: str,
-                               patient_selection_path: str, verbose: bool = False,
+                               patient_selection_path: str,
+                               variable_selection_path: str,
+                               verbose: bool = False,
                                use_stroke_registry_data: bool = True,
                                log_dir:str = '') -> pd.DataFrame:
     """
@@ -45,7 +50,18 @@ def assemble_variable_database(raw_data_path: str, stroke_registry_data_path: st
     2. Preprocess EHR and stroke registry data
     3. Restrict to variable selection
     4. Assemble database from lab/scales/ventilation/vitals + stroke registry subparts
-    :return: Dataframe with all features under sample_label, value, sample_date, source
+
+    Args:
+        raw_data_path: path to EHR data folder
+        stroke_registry_data_path: path to stroke registry data
+        patient_selection_path: path to patient selection
+        variable_selection_path: path to variable selection (should be same format as in ./selected_variables_example.xlsx)
+        verbose: print verbose output
+        use_stroke_registry_data: whether to use stroke registry data
+        log_dir: directory to save log files
+
+    Returns:
+        :return: Dataframe with all features under sample_label, value, sample_date, source
     """
     # load eds data
     eds_df = pd.read_csv(os.path.join(raw_data_path, 'eds_j1.csv'), delimiter=';', encoding='utf-8',
@@ -80,8 +96,18 @@ def assemble_variable_database(raw_data_path: str, stroke_registry_data_path: st
                      inplace=True)
     vitals_df['source'] = 'EHR'
 
+    # Treatment strategy
+    prescription_file_start = 'prescription'
+    prescription_df = load_data_from_main_dir(raw_data_path, prescription_file_start)
+    prescription_df = filter_ehr_patients(prescription_df, patient_selection_path)
+    anti_hypertensive_strategy_df = extract_anti_hypertensive_strategy(prescription_df, interval=60, verbose=verbose)
+    anti_hypertensive_strategy_df = anti_hypertensive_strategy_df[['case_admission_id', 'sample_date', 'target_strategy', 'impute_missing_as']]
+    anti_hypertensive_strategy_df.rename(columns={'target_strategy': 'value'}, inplace=True)
+    anti_hypertensive_strategy_df['sample_label'] = 'anti_hypertensive_strategy'
+    anti_hypertensive_strategy_df['source'] = 'EHR'
+
     # Find first sample date in EHR for each patient, this will be used for the inference of FiO2
-    intermediate_feature_data = pd.concat([preprocessed_lab_df, scales_df, vitals_df], ignore_index=True)
+    intermediate_feature_data = pd.concat([preprocessed_lab_df, scales_df, vitals_df, anti_hypertensive_strategy_df], ignore_index=True)
     first_sample_date_df = get_first_sample_date(intermediate_feature_data)
 
     # Load and preprocess ventilation data (this has to be done last, to have access to the first sample date)
@@ -99,7 +125,8 @@ def assemble_variable_database(raw_data_path: str, stroke_registry_data_path: st
     spo2_df['source'] = 'EHR'
 
     # Assemble feature database
-    feature_database = pd.concat([preprocessed_lab_df, scales_df, fio2_df, spo2_df, vitals_df], ignore_index=True)
+    feature_database = pd.concat([preprocessed_lab_df, scales_df, fio2_df, spo2_df, vitals_df,
+                                        anti_hypertensive_strategy_df], ignore_index=True)
     feature_database = restrict_to_patient_selection(feature_database, patient_selection_path, verbose=verbose,
                                                      restrict_to_event_period=True)
 
@@ -150,7 +177,6 @@ def assemble_variable_database(raw_data_path: str, stroke_registry_data_path: st
         feature_database = pd.concat([feature_database, selected_stroke_registry_data_df], ignore_index=True)
 
     # Restrict to variable selection
-    variable_selection_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'selected_variables.xlsx')
     feature_database = restrict_to_selected_variables(feature_database, variable_selection_path, enforce=True)
 
     if log_dir != '':
