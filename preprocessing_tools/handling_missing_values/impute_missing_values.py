@@ -229,7 +229,7 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
 
     # add missing timebins for each case_admission_id / sample_label combination
     locf_imputed_missing_df = imputed_missing_df.groupby(['case_admission_id', 'sample_label']).apply(
-        lambda x: x.set_index('relative_sample_date_hourly_cat').reindex(range(0, 72)))
+        lambda x: x.set_index('relative_sample_date_hourly_cat').reindex(range(0, desired_time_range)))
     locf_imputed_missing_df.sample_label = locf_imputed_missing_df.sample_label.fillna(method='ffill')
     locf_imputed_missing_df.case_admission_id = locf_imputed_missing_df.case_admission_id.fillna(method='ffill')
 

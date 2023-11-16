@@ -22,19 +22,16 @@ def assert_selected_variables_presence(df: pd.DataFrame, selected_variables: lis
     return True
 
 
-def variable_presence_verification(normalised_df: pd.DataFrame, target_feature_path: str = '',
+def variable_presence_verification(normalised_df: pd.DataFrame,
+                                   target_feature_path: str,
+                                   selected_variables_path: str,
                                    desired_time_range:int=72) -> bool:
 
     # Verifying presence of all selected variables
     all_variables_present = []
     all_features_present = []
-    selected_variables_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'geneva_stroke_unit_preprocessing/variable_assembly/selected_variables_example.xlsx')
     selected_variables = pd.read_excel(selected_variables_path)['included']
 
-    if target_feature_path == '':
-        target_feature_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),
-                                           'prediction', 'outcome_prediction', 'LSTM', 'training',
-                                           'lstm_feature_order.xlsx')
     target_features = pd.read_excel(target_feature_path, header=None)[0].tolist()
 
     for cid in tqdm(normalised_df.case_admission_id.unique()):
@@ -57,11 +54,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--preprocessed_df_path', type=str, required=True)
     parser.add_argument('--desired_time_range', type=int, default=72)
+    parser.add_argument('--selected_variables_path', type=str, default='')
     parser.add_argument('--target_feature_path', type=str, default='')
     args = parser.parse_args()
 
     normalised_df = pd.read_csv(args.preprocessed_df_path)
-    variable_presence_verification(normalised_df, args.target_feature_path, args.desired_time_range)
+    variable_presence_verification(normalised_df,
+                                   args.target_feature_path,
+                                   args.selected_variables_path,
+                                   args.desired_time_range)
 
 
 

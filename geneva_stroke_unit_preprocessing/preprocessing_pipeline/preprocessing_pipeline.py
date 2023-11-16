@@ -16,12 +16,12 @@ from geneva_stroke_unit_preprocessing.variable_assembly.relative_timestamps impo
 from preprocessing_tools.utils import ensure_dir
 
 
-def preprocess(ehr_data_path:str, stroke_registry_data_path:str,
-                patient_selection_path:str,
-                variable_selection_path:str,
-                log_dir: str,
-                winsorize: bool = True,
-                verbose:bool=True, desired_time_range:int=72) -> pd.DataFrame:
+def preprocess(ehr_data_path: str, stroke_registry_data_path: str,
+               patient_selection_path: str,
+               variable_selection_path: str,
+               log_dir: str,
+               winsorize: bool = True,
+               verbose: bool = True, desired_time_range: int = 72) -> pd.DataFrame:
     """
     Apply geneva_stroke_unit_preprocessing pipeline detailed in ./geneva_stroke_unit_preprocessing/readme.md
     :param ehr_data_path: path to EHR data
@@ -51,7 +51,8 @@ def preprocess(ehr_data_path:str, stroke_registry_data_path:str,
     # - Restrict to desired time range: 72h
     print('TRANSFORMING TO RELATIVE TIME AND RESTRICTING TIME RANGE')
     restricted_feature_df = transform_to_relative_timestamps(feature_df, drop_old_columns=False,
-                                                             restrict_to_time_range=True, desired_time_range=desired_time_range,
+                                                             restrict_to_time_range=True,
+                                                             desired_time_range=desired_time_range,
                                                              enforce_min_time_range=True, min_time_range=12,
                                                              log_dir=log_dir)
     print(f'B. Number of patients: {restricted_feature_df.case_admission_id.nunique()}')
@@ -62,7 +63,6 @@ def preprocess(ehr_data_path:str, stroke_registry_data_path:str,
                                                                      log_dir=log_dir)
     print(f'C. Number of patients: {cat_encoded_restricted_feature_df.case_admission_id.nunique()}')
 
-
     # 8. Resampling to hourly frequency
     print('RESAMPLING TO HOURLY FREQUENCY')
     resampled_df = resample_to_hourly_features(cat_encoded_restricted_feature_df, verbose=verbose)
@@ -70,7 +70,8 @@ def preprocess(ehr_data_path:str, stroke_registry_data_path:str,
 
     # 9. imputation of missing values
     print('IMPUTING MISSING VALUES')
-    imputed_missing_df = impute_missing_values(resampled_df, verbose=verbose, log_dir=log_dir, desired_time_range=desired_time_range)
+    imputed_missing_df = impute_missing_values(resampled_df, verbose=verbose, log_dir=log_dir,
+                                               desired_time_range=desired_time_range)
     print(f'E. Number of patients: {imputed_missing_df.case_admission_id.nunique()}')
 
     # 10. normalisation
@@ -80,16 +81,21 @@ def preprocess(ehr_data_path:str, stroke_registry_data_path:str,
     print(f'F. Number of patients: {normalised_df.case_admission_id.nunique()}')
 
     # 11. geneva_stroke_unit_preprocessing outcomes
-    preprocessed_outcomes_df = preprocess_outcomes(stroke_registry_data_path, patient_selection_path, verbose=verbose)
+    preprocessed_outcomes = preprocess_outcomes(stroke_registry_data_path, patient_selection_path,
+                                                   imputed_missing_df,
+                                                   verbose=verbose)
+    preprocessed_final_outcomes_df, preprocessed_continuous_outcomes_df = preprocessed_outcomes
 
-    return normalised_df, preprocessed_outcomes_df
+    return normalised_df, preprocessed_final_outcomes_df, preprocessed_continuous_outcomes_df
 
 
-def preprocess_and_save(ehr_data_path:str, stroke_registry_data_path:str, patient_selection_path:str,
-                        variable_selection_path:str, output_dir:str,
-                        winsorize:bool = True,
-                        feature_file_prefix:str = 'preprocessed_features', outcome_file_prefix:str = 'preprocessed_outcomes', verbose:bool=True):
-
+def preprocess_and_save(ehr_data_path: str, stroke_registry_data_path: str, patient_selection_path: str,
+                        variable_selection_path: str,
+                        target_feature_path: str,
+                        output_dir: str,
+                        winsorize: bool = True,
+                        feature_file_prefix: str = 'preprocessed_features',
+                        outcome_file_prefix: str = 'preprocessed_outcomes', verbose: bool = True):
     timestamp = time.strftime("%d%m%Y_%H%M%S")
     desired_time_range = 72
     output_dir = os.path.join(output_dir, f'gsu_{os.path.basename(ehr_data_path)}_prepro_{timestamp}')
@@ -101,19 +107,26 @@ def preprocess_and_save(ehr_data_path:str, stroke_registry_data_path:str, patien
     with open(os.path.join(log_dir, 'preprocessing_arguments.json'), 'w') as fp:
         json.dump(saved_args, fp)
 
-    preprocessed_feature_df, preprocessed_outcome_df = preprocess(ehr_data_path, stroke_registry_data_path,
-                                                                  patient_selection_path, verbose=verbose, log_dir=log_dir,
+    preprocessed_data = preprocess(ehr_data_path, stroke_registry_data_path,
+                                                                  patient_selection_path, verbose=verbose,
+                                                                  log_dir=log_dir,
                                                                   desired_time_range=desired_time_range)
+    preprocessed_feature_df, preprocessed_final_outcome_df, preprocessed_continuous_outcomes_df = preprocessed_data
     features_save_path = os.path.join(output_dir, f'{feature_file_prefix}_{timestamp}.csv')
-    outcomes_save_path = os.path.join(output_dir, f'{outcome_file_prefix}_{timestamp}.csv')
+    final_outcomes_save_path = os.path.join(output_dir, f'{outcome_file_prefix}_final_{timestamp}.csv')
+    continuous_outcomes_save_path = os.path.join(output_dir, f'{outcome_file_prefix}_continuous_{timestamp}.csv')
 
     preprocessed_feature_df.to_csv(features_save_path)
-    preprocessed_outcome_df.to_csv(outcomes_save_path)
+    preprocessed_final_outcome_df.to_csv(final_outcomes_save_path)
+    preprocessed_continuous_outcomes_df.to_csv(continuous_outcomes_save_path)
 
     # verification of geneva_stroke_unit_preprocessing
-    variable_presence_verification(preprocessed_feature_df, desired_time_range=desired_time_range)
-    outcome_presence_verification(preprocessed_outcome_df, preprocessed_feature_df, log_dir=log_dir)
-
+    variable_presence_verification(preprocessed_feature_df,
+                                   target_feature_path=target_feature_path,
+                                   selected_variables_path=variable_selection_path,
+                                   desired_time_range=desired_time_range)
+    outcome_presence_verification(preprocessed_final_outcome_df, preprocessed_continuous_outcomes_df,
+                                  preprocessed_feature_df, log_dir=log_dir)
 
 
 if __name__ == '__main__':
@@ -125,15 +138,19 @@ if __name__ == '__main__':
     -o /Users/jk1/-/opsum_prepro_output
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('-e','--ehr', type=str, help='EHR data path')
+    parser.add_argument('-e', '--ehr', type=str, help='EHR data path')
     parser.add_argument('-r', '--registry', type=str, help='Registry data path')
     parser.add_argument('-p', '--patients', type=str, help='Patient selection file')
     parser.add_argument('-v', '--variable_selection', type=str, help='Variable selection file')
+    parser.add_argument('-t', '--target_features', type=str,
+                        help='Target feature file (target order after preprocessing)')
     parser.add_argument('-o', '--output_dir', type=str, help='Output directory')
-    parser.add_argument('-w', '--winsorize', type=bool, default=False, action='store_true', help='Whether to winsorize values')
+    parser.add_argument('-w', '--winsorize', type=bool, default=False, action='store_true',
+                        help='Whether to winsorize values')
     args = parser.parse_args()
 
     preprocess_and_save(args.ehr, args.registry,
                         args.patients, args.variable_selection,
+                        args.target_features,
                         args.output_dir,
                         args.winsorize)
