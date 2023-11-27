@@ -5,45 +5,45 @@ import os
 
 categorical_vars = [
     'sex_male',
-'referral_in-hospital_event',
-'referral_other_hospital',
-'referral_self_referral_or_gp',
-'prestroke_disability_(rankin)_1.0',
-'prestroke_disability_(rankin)_2.0',
-'prestroke_disability_(rankin)_3.0',
-'prestroke_disability_(rankin)_4.0',
-'prestroke_disability_(rankin)_5.0',
-'antihypert._drugs_pre-stroke_yes',
-'lipid_lowering_drugs_pre-stroke_yes',
-'antiplatelet_drugs_yes',
-'anticoagulants_yes',
-'medhist_hypertension_yes',
-'medhist_diabetes_yes',
-'medhist_hyperlipidemia_yes',
-'medhist_smoking_yes',
-'medhist_atrial_fibr._yes',
-'medhist_chd_yes',
-'medhist_pad_yes',
-'medhist_cerebrovascular_event_true',
-'categorical_onset_to_admission_time_541-1440min',
-'categorical_onset_to_admission_time_<270min',
-'categorical_onset_to_admission_time_>1440min',
-'categorical_onset_to_admission_time_intra_hospital',
-'categorical_onset_to_admission_time_onset_unknown',
-'wake_up_stroke_true',
-'categorical_ivt_91-270min',
-'categorical_ivt_<90min',
-'categorical_ivt_>540min',
-'categorical_ivt_no_ivt',
-'categorical_iat_<270min',
-'categorical_iat_>540min',
-'categorical_iat_no_iat',
+    'referral_in-hospital_event',
+    'referral_other_hospital',
+    'referral_self_referral_or_gp',
+    'prestroke_disability_(rankin)_1.0',
+    'prestroke_disability_(rankin)_2.0',
+    'prestroke_disability_(rankin)_3.0',
+    'prestroke_disability_(rankin)_4.0',
+    'prestroke_disability_(rankin)_5.0',
+    'antihypert._drugs_pre-stroke_yes',
+    'lipid_lowering_drugs_pre-stroke_yes',
+    'antiplatelet_drugs_yes',
+    'anticoagulants_yes',
+    'medhist_hypertension_yes',
+    'medhist_diabetes_yes',
+    'medhist_hyperlipidemia_yes',
+    'medhist_smoking_yes',
+    'medhist_atrial_fibr._yes',
+    'medhist_chd_yes',
+    'medhist_pad_yes',
+    'medhist_cerebrovascular_event_true',
+    'categorical_onset_to_admission_time_541-1440min',
+    'categorical_onset_to_admission_time_<270min',
+    'categorical_onset_to_admission_time_>1440min',
+    'categorical_onset_to_admission_time_intra_hospital',
+    'categorical_onset_to_admission_time_onset_unknown',
+    'wake_up_stroke_true',
+    'categorical_ivt_91-270min',
+    'categorical_ivt_<90min',
+    'categorical_ivt_>540min',
+    'categorical_ivt_no_ivt',
+    'categorical_iat_<270min',
+    'categorical_iat_>540min',
+    'categorical_iat_no_iat',
 ]
 
 
-def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path: str ='',
-                          verbose:bool=True, log_dir:str='',
-                          desired_time_range:int=72) -> pd.DataFrame:
+def impute_missing_values(df: pd.DataFrame, reference_population_imputation_path: str = '',
+                          verbose: bool = True, log_dir: str = '',
+                          desired_time_range: int = 72) -> pd.DataFrame:
     """
     Impute missing values in the dataframe.
     Missing values, are imputed by last observation carried forward (LOCF).
@@ -91,18 +91,17 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
             # compute number of missing cid per time bin
             n_missing_cids_per_time_bin = [df.case_admission_id.nunique() -
                                            df[(df.sample_label == variable)
-                                                        & (df.relative_sample_date_hourly_cat == time_bin)]
+                                              & (df.relative_sample_date_hourly_cat == time_bin)]
                                            .case_admission_id.nunique()
                                            for time_bin in range(desired_time_range)]
 
             missingness_df = pd.concat([
-                                        missingness_df,
-                                        pd.DataFrame([[variable, n_missing_cids_overall] + n_missing_cids_per_time_bin],
-                                                     columns=missingness_df_columns)
-                                               ], ignore_index=True)
+                missingness_df,
+                pd.DataFrame([[variable, n_missing_cids_overall] + n_missing_cids_per_time_bin],
+                             columns=missingness_df_columns)
+            ], ignore_index=True)
 
         missingness_df.to_csv(os.path.join(log_dir, 'missingness.csv'), index=False)
-
 
     # Handle first missing values (timebin 0)
     # -> fill with population median/mode
@@ -117,7 +116,7 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
         # find case_admission_ids with no value for sample_label in first timebin
         patients_with_no_sample_label_tp0 = set(imputed_missing_df.case_admission_id.unique()).difference(set(
             imputed_missing_df[(imputed_missing_df.sample_label == sample_label) & (
-                        imputed_missing_df.relative_sample_date_hourly_cat == 0)].case_admission_id.unique()))
+                    imputed_missing_df.relative_sample_date_hourly_cat == 0)].case_admission_id.unique()))
 
         n_missing_cids_overall = df.case_admission_id.nunique() - df[
             df.sample_label == sample_label].case_admission_id.nunique()
@@ -125,9 +124,10 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
         ## Special cases for imputation of first timebin: ##
         # for sample_labels with impute_missing_as defined (other than locf) use this value for imputation of first timebin
         if not (imputed_missing_df[(imputed_missing_df.sample_label == sample_label)]
-                            .impute_missing_as.isin(['locf', np.NAN]).all()):
+                .impute_missing_as.isin(['locf', np.NAN]).all()):
             # impute with prespecified value
-            imputed_tp0_value = imputed_missing_df[(imputed_missing_df.sample_label == sample_label)].impute_missing_as.iloc[0]
+            imputed_tp0_value = \
+            imputed_missing_df[(imputed_missing_df.sample_label == sample_label)].impute_missing_as.iloc[0]
             imputation_method = 'prespecified'
             imputation_range = 'overall'
             imputation_suffix = '_prespecified_imputed'
@@ -141,18 +141,21 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
 
 
         ## General case for imputation of first timebin: ##
-        elif (n_missing_cids_overall > 2/3 * df.case_admission_id.nunique()) & (reference_population_imputation_path != ''):
-        #  if sample label has a lot of missing values (~50%), then use mean/median of the reference population
+        elif (n_missing_cids_overall > 2 / 3 * df.case_admission_id.nunique()) & (
+                reference_population_imputation_path != ''):
+            #  if sample label has a lot of missing values (~50%), then use mean/median of the reference population
             if sample_label in categorical_vars:
                 # not implemented
-                raise NotImplementedError('Imputation from reference population of categorical variables is not implemented.')
+                raise NotImplementedError(
+                    'Imputation from reference population of categorical variables is not implemented.')
             else:
                 # use median
                 imputed_tp0_value = reference_population_imputation_df[
-                                        (reference_population_imputation_df.variable == sample_label)
-                                        & (reference_population_imputation_df.imputation_method == 'median')]\
-                                        ['imputed_value'].iloc[0]
-            labels_imputed_from_reference_population.append([sample_label, imputed_tp0_value, len(patients_with_no_sample_label_tp0)])
+                    (reference_population_imputation_df.variable == sample_label)
+                    & (reference_population_imputation_df.imputation_method == 'median')] \
+                    ['imputed_value'].iloc[0]
+            labels_imputed_from_reference_population.append(
+                [sample_label, imputed_tp0_value, len(patients_with_no_sample_label_tp0)])
             imputation_method = 'reference_population_median'
             imputation_range = 'reference_population'
             imputation_suffix = '_reference_pop_imputed'
@@ -162,7 +165,8 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
             n_missing_cids_tp0 = len(patients_with_no_sample_label_tp0)
             if n_missing_cids_tp0 > 0.5 * df.case_admission_id.nunique():
                 # impute over all timepoints
-                imputed_tp0_value = imputed_missing_df[imputed_missing_df.sample_label == sample_label].value.mode().iloc[0]
+                imputed_tp0_value = \
+                imputed_missing_df[imputed_missing_df.sample_label == sample_label].value.mode().iloc[0]
                 imputation_range = 'all_tp'
             else:
                 imputed_tp0_value = imputed_missing_df[(imputed_missing_df.sample_label == sample_label) & (
@@ -179,6 +183,8 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
                 imputed_tp0_value = imputed_missing_df[imputed_missing_df.sample_label == sample_label].value.median()
                 imputation_range = 'all_tp'
             else:
+                print(
+                    f'Imputing {sample_label} for {n_missing_cids_tp0} patients with no {sample_label} in first timebin.')
                 imputed_tp0_value = imputed_missing_df[(imputed_missing_df.sample_label == sample_label) & (
                         imputed_missing_df.relative_sample_date_hourly_cat == 0)].value.median()
                 imputation_range = 'tp0'
@@ -200,7 +206,7 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
                                              'value': imputed_tp0_value,
                                              'impute_missing_as':
                                                  imputed_missing_df[imputed_missing_df.sample_label == sample_label]
-                                                                            .impute_missing_as.mode(dropna=False)[0]},
+                                            .impute_missing_as.mode(dropna=False)[0]},
                                             )
 
         # impute missing values for sample_label in first timebin
@@ -208,13 +214,15 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
                                         imputed_sample_label], ignore_index=True)
 
         imputation_parameters_df = pd.concat([imputation_parameters_df,
-            pd.DataFrame([[sample_label, imputed_tp0_value, imputation_method, imputation_range]], columns=imputation_parameters_columns)
-                                             ], ignore_index=True)
+                                              pd.DataFrame([[sample_label, imputed_tp0_value, imputation_method,
+                                                             imputation_range]], columns=imputation_parameters_columns)
+                                              ], ignore_index=True)
 
     if log_dir != '':
         if (reference_population_imputation_path != ''):
             # save labels imputed from reference population
-            pd.DataFrame(labels_imputed_from_reference_population, columns=['label', 'imputed_value', 'imputed_for_n_subjects'])\
+            pd.DataFrame(labels_imputed_from_reference_population,
+                         columns=['label', 'imputed_value', 'imputed_for_n_subjects']) \
                 .to_csv(os.path.join(log_dir, 'labels_imputed_from_reference_population.csv'), index=False)
 
         # save imputation parameters
@@ -240,14 +248,26 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
 
     # impute missing values as specified in impute_missing_as (for those that are not np.NAN)
     locf_imputed_missing_df.value = locf_imputed_missing_df.value.fillna(locf_imputed_missing_df.impute_missing_as)
+
+    # mark imputed values through prespecified imputation
+    for sample_label in locf_imputed_missing_df.sample_label.unique():
+        locf_imputed_missing_df.loc[locf_imputed_missing_df.sample_label == sample_label, 'mode_source'] = \
+            locf_imputed_missing_df[locf_imputed_missing_df.sample_label == sample_label].source.mode(dropna=True)[0]
+    locf_imputed_missing_df.loc[
+        (~locf_imputed_missing_df.impute_missing_as.isna()) & (locf_imputed_missing_df.source.isna()),
+        'source'] = \
+        locf_imputed_missing_df[
+            (~locf_imputed_missing_df.impute_missing_as.isna()) & (locf_imputed_missing_df.source.isna())
+            ].apply(lambda x: x.mode_source + '_prespecified_imputed', axis=1)
+    locf_imputed_missing_df.drop(columns=['mode_source'], inplace=True)
+
+    # mark values where imputation not yet marked
+    locf_imputed_missing_df['source_imputation'] = locf_imputed_missing_df.source.apply(
+        lambda x: '' if type(x) == str else np.nan)
+
     # impute missing values with last observation carried forward (for all other missing values)
     locf_imputed_missing_df.value = locf_imputed_missing_df.value.fillna(method='ffill')
 
-
-    locf_imputed_missing_df['source_imputation'] = locf_imputed_missing_df.source.apply(lambda x: '' if type(x) == str else np.nan)
-    # mark imputed values through prespecified imputation
-    locf_imputed_missing_df.loc[~locf_imputed_missing_df.impute_missing_as.isna(), 'source_imputation'] = \
-                            locf_imputed_missing_df[~locf_imputed_missing_df.impute_missing_as.isna()].fillna('_prespecified_imputed')
     # mark imputed values through locf
     locf_imputed_missing_df.source_imputation = locf_imputed_missing_df.source_imputation.fillna('_locf_imputed')
     locf_imputed_missing_df.source = locf_imputed_missing_df.source.fillna(method='ffill')
@@ -260,7 +280,3 @@ def impute_missing_values(df:pd.DataFrame, reference_population_imputation_path:
     locf_imputed_missing_df.reset_index(inplace=True, drop=True)
 
     return locf_imputed_missing_df
-
-
-
-

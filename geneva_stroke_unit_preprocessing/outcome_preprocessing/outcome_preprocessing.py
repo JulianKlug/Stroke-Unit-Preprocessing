@@ -118,7 +118,7 @@ def preprocess_outcomes(stroke_registry_data_path: str, patient_selection_path: 
     # First derivative of median_NIHSS
     # (for every case_admission_id / timebin combination, substract previous value from current value)
     end_df['nihss_delta'] = end_df.groupby(['case_admission_id'])['value'].diff()
-    end_df['nihss_delta'] = end_df['delta'].fillna(0)
+    end_df['nihss_delta'] = end_df['nihss_delta'].fillna(0)
 
     # Delta to best prior state and delta to start state
     end_df['best_prior_state'] = end_df.groupby(['case_admission_id'])['value'].cummin()
@@ -127,9 +127,9 @@ def preprocess_outcomes(stroke_registry_data_path: str, patient_selection_path: 
     end_df['nihss_delta_to_start_state'] = end_df['value'] - end_df['start_state']
 
     # Delta at next time step
-    end_df['nihss_delta_at_next_ts'] = end_df.groupby(['case_admission_id'])['delta'].shift(-1)
-    end_df['nihss_delta_to_best_prior_state_at_next_ts'] = end_df.groupby(['case_admission_id'])['delta_to_best_prior_state'].shift(-1)
-    end_df['nihss_delta_to_start_state_at_next_ts'] = end_df.groupby(['case_admission_id'])['delta_to_start_state'].shift(-1)
+    end_df['nihss_delta_at_next_ts'] = end_df.groupby(['case_admission_id'])['nihss_delta'].shift(-1)
+    end_df['nihss_delta_to_best_prior_state_at_next_ts'] = end_df.groupby(['case_admission_id'])['nihss_delta_to_best_prior_state'].shift(-1)
+    end_df['nihss_delta_to_start_state_at_next_ts'] = end_df.groupby(['case_admission_id'])['nihss_delta_to_start_state'].shift(-1)
 
     end_df.drop(columns=['sample_label', 'impute_missing_as', 'best_prior_state', 'start_state'], inplace=True)
     end_df.rename(columns={'value': 'nihss'}, inplace=True)

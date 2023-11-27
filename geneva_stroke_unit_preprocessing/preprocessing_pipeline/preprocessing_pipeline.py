@@ -21,6 +21,7 @@ def preprocess(ehr_data_path: str, stroke_registry_data_path: str,
                variable_selection_path: str,
                log_dir: str,
                winsorize: bool = True,
+               start_reference: str = 'first',
                verbose: bool = True, desired_time_range: int = 72) -> pd.DataFrame:
     """
     Apply geneva_stroke_unit_preprocessing pipeline detailed in ./geneva_stroke_unit_preprocessing/readme.md
@@ -30,6 +31,9 @@ def preprocess(ehr_data_path: str, stroke_registry_data_path: str,
     :param variable_selection_path: path to variable selection file (should be same format as in ../variable_assembly/selected_variables_example.xlsx)
     :param log_dir: path to logging directory (this will receive logs of excluded patients and those that were not found)
     :param winsorize: whether to winsorize values outside the upper and lower bounds of 1⋅5 times the IQR are set to the upper and lower limits of the range
+    :param start_reference: str, reference start time for sampling, default is 'first', other option is 'after_acute_treatment'
+    - 'first': first sample date of EHR is used as reference
+    - 'after_acute_treatment': if patient received IAT/IVT, treatment end is used as reference
     :param verbose:
     :param desired_time_range: number of hours to use for imputation
     :return: preprocessed feature Dataframe, preprocessed outcome dataframe
@@ -50,10 +54,17 @@ def preprocess(ehr_data_path: str, stroke_registry_data_path: str,
     # - Exclude patients with data sampled in a time window < 12h
     # - Restrict to desired time range: 72h
     print('TRANSFORMING TO RELATIVE TIME AND RESTRICTING TIME RANGE')
+    if start_reference == 'after_acute_treatment':
+        aggregate_prior_24h = True
+    else:
+        aggregate_prior_24h = False
+
     restricted_feature_df = transform_to_relative_timestamps(feature_df, drop_old_columns=False,
                                                              restrict_to_time_range=True,
                                                              desired_time_range=desired_time_range,
                                                              enforce_min_time_range=True, min_time_range=12,
+                                                             start_reference=start_reference,
+                                                             aggregate_prior_24h=aggregate_prior_24h,
                                                              log_dir=log_dir)
     print(f'B. Number of patients: {restricted_feature_df.case_admission_id.nunique()}')
 
@@ -94,6 +105,7 @@ def preprocess_and_save(ehr_data_path: str, stroke_registry_data_path: str, pati
                         target_feature_path: str,
                         output_dir: str,
                         winsorize: bool = True,
+                        start_reference: str = 'first',
                         feature_file_prefix: str = 'preprocessed_features',
                         outcome_file_prefix: str = 'preprocessed_outcomes', verbose: bool = True):
     timestamp = time.strftime("%d%m%Y_%H%M%S")
@@ -108,9 +120,12 @@ def preprocess_and_save(ehr_data_path: str, stroke_registry_data_path: str, pati
         json.dump(saved_args, fp)
 
     preprocessed_data = preprocess(ehr_data_path, stroke_registry_data_path,
-                                                                  patient_selection_path, verbose=verbose,
-                                                                  log_dir=log_dir,
-                                                                  desired_time_range=desired_time_range)
+                                    patient_selection_path,
+                                    variable_selection_path,
+                                    verbose=verbose,
+                                    log_dir=log_dir,
+                                    desired_time_range=desired_time_range,
+                                    start_reference=start_reference)
     preprocessed_feature_df, preprocessed_final_outcome_df, preprocessed_continuous_outcomes_df = preprocessed_data
     features_save_path = os.path.join(output_dir, f'{feature_file_prefix}_{timestamp}.csv')
     final_outcomes_save_path = os.path.join(output_dir, f'{outcome_file_prefix}_final_{timestamp}.csv')
@@ -132,7 +147,7 @@ def preprocess_and_save(ehr_data_path: str, stroke_registry_data_path: str, pati
 if __name__ == '__main__':
     """
     Example usage:
-    python preprocessing_pipeline.py.py -e /Users/jk1/-/-/-/Extraction20220629 -r /Users/jk1/-/-/-/post_hoc_modified/stroke_registry_post_hoc_modified.xlsx 
+    python preprocessing_pipeline.py -e /Users/jk1/-/-/-/Extraction20220629 -r /Users/jk1/-/-/-/post_hoc_modified/stroke_registry_post_hoc_modified.xlsx 
     -p /Users/jk1/-/-/high_frequency_data_patient_selection_with_details.csv 
     -v /Users/jk1/-/selected_variables_example.xlsx
     -o /Users/jk1/-/opsum_prepro_output
@@ -145,12 +160,14 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--target_features', type=str,
                         help='Target feature file (target order after preprocessing)')
     parser.add_argument('-o', '--output_dir', type=str, help='Output directory')
-    parser.add_argument('-w', '--winsorize', type=bool, default=False, action='store_true',
+    parser.add_argument('-w', '--winsorize', default=False, action='store_true',
                         help='Whether to winsorize values')
+    parser.add_argument('-sr', '--start_reference', type=str, default='first')
     args = parser.parse_args()
 
     preprocess_and_save(args.ehr, args.registry,
                         args.patients, args.variable_selection,
                         args.target_features,
                         args.output_dir,
-                        args.winsorize)
+                        args.winsorize,
+                        start_reference=args.start_reference)

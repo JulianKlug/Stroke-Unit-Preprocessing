@@ -6,6 +6,8 @@ import pandas as pd
 def transform_to_relative_timestamps(df: pd.DataFrame, drop_old_columns: bool = True,
                                      restrict_to_time_range: bool = False, desired_time_range: int = 72,
                                      enforce_min_time_range: bool = False, min_time_range: int = 12,
+                                     start_reference: str = 'first',
+                                     aggregate_prior_24h: bool = False,
                                      log_dir: str = '') -> pd.DataFrame:
     """
     Transform the datetime column to relative timestamps in hours from first measurement.
@@ -18,9 +20,19 @@ def transform_to_relative_timestamps(df: pd.DataFrame, drop_old_columns: bool = 
     :param desired_time_range: int, if restrict_to_time_range is True, restrict to this upper limit in hours, default is 72 hours
     :param enforce_min_time_range: bool, if true, enforce minimum time range
     :param min_time_range: int, if enforce_min_time_range is True, enforce minimum time range to this value in hours, default is 12 hours
+    :param start_reference: str, reference start time for sampling, default is 'first', other option is 'after_acute_treatment'
+        - 'first': first sample date of EHR is used as reference
+        - 'after_acute_treatment': if patient received IAT/IVT, treatment end is used as reference
+    :param aggregate_prior_24h: if True, aggregate all samples in the 24h before reference time point 0 to time point 0
     :param log_dir: str, path to log directory
     :return: Dataframe with relative timestamps
     """
+
+    # Verify arguments
+    if start_reference not in {'first', 'after_acute_treatment'}:
+        raise ValueError(f'Invalid value for start_reference: {start_reference}. '
+                         f'Should be either "first" or "after_acute_treatment".')
+
     datatime_format = '%d.%m.%Y %H:%M'
     df['sample_date'] = pd.to_datetime(df['sample_date'], format=datatime_format)
 
@@ -38,7 +50,8 @@ def transform_to_relative_timestamps(df: pd.DataFrame, drop_old_columns: bool = 
     #     -> remove samples occurring before reference
 
     # Find first sample date of EHR
-    first_ehr_sample_date = df[(df.source == 'EHR') & (df.sample_label != 'FIO2')] \
+    variables_with_inaccurate_start_date = ['FIO2', 'anti_hypertensive_strategy']
+    first_ehr_sample_date = df[(df.source == 'EHR') & (~df.sample_label.isin(variables_with_inaccurate_start_date))] \
         .groupby('case_admission_id').sample_date.min().reset_index(level=0)
     first_ehr_sample_date.rename(columns={'sample_date': 'first_ehr_sample_date'}, inplace=True)
 
@@ -86,6 +99,15 @@ def transform_to_relative_timestamps(df: pd.DataFrame, drop_old_columns: bool = 
     merged_first_sample_dates_df['reference_first_sample_date'] = merged_first_sample_dates_df.apply(
         lambda row: determine_reference_time_point(row), axis=1)
 
+    if start_reference == 'after_acute_treatment':
+        # Use end of acute treatment as reference time point 0
+        acute_treatment_end_datetime_df = df[['case_admission_id', 'acute_treatment_end_datetime']].dropna().drop_duplicates()
+        # replace reference_first_sample_date with the latest between reference_first_sample_date and acute_treatment_end_datetime
+        merged_first_sample_dates_df = merged_first_sample_dates_df.merge(acute_treatment_end_datetime_df, on='case_admission_id', how='left')
+        merged_first_sample_dates_df['reference_first_sample_date'] = merged_first_sample_dates_df[['reference_first_sample_date', 'acute_treatment_end_datetime']].max(axis=1)
+        merged_first_sample_dates_df.drop('acute_treatment_end_datetime', axis=1, inplace=True)
+    df.drop('acute_treatment_end_datetime', axis=1, inplace=True)
+
     merged_first_sample_dates_df = merged_first_sample_dates_df[['case_admission_id', 'reference_first_sample_date']]
 
     # TRANSFORM TO RELATIVE TIMESTAMPS
@@ -102,6 +124,10 @@ def transform_to_relative_timestamps(df: pd.DataFrame, drop_old_columns: bool = 
     df.loc[(df.sample_label == 'FIO2') & (df.relative_sample_date < 0), 'relative_sample_date'] = 0.0
 
     # FILTER OUT UNWARRANTED DATA
+    if aggregate_prior_24h:
+        # aggregate all samples in the 24h before reference time point 0 to time point 0
+        df.loc[(df.relative_sample_date < 0) & (df.relative_sample_date > -24), 'relative_sample_date'] = 0.0
+
     # exclude samples with relative_sample_date < 0
     df = df[df['relative_sample_date'] >= 0]
 
